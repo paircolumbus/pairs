@@ -18,6 +18,12 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.body.helpers({
+    pairs: function () {
+      return Pairs.find({});
+    }
+  });
+
   Template.body.events({
     "submit .new-person": function (event) {
       var commaSeparator = /\s*,\s*/;
@@ -56,8 +62,9 @@ if (Meteor.isClient) {
   Template.body.events({
     "submit .pair-it": function (event) {
 
-      pairs = [];
-      pairs.push({
+      Meteor.call('clearPairs');
+
+      Pairs.insert({
         person1: People.find().fetch()[0],
         person2: People.find().fetch()[1]
       });
@@ -65,3 +72,19 @@ if (Meteor.isClient) {
     }
   });
 }
+
+if (Meteor.isServer) {
+  Meteor.methods({
+    clearPairs: function () {
+      Pairs.remove({});
+    }
+  });
+
+}
+
+
+
+
+
+
+
