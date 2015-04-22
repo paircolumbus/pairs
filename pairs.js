@@ -58,6 +58,7 @@ if (Meteor.isClient) {
         'remove_button'
       ]
     });
+  });
 
   Template.body.events({
     "submit .pair-it": function (event) {
@@ -82,14 +83,12 @@ if (Meteor.isClient) {
     }
   });
 }
-
 if (Meteor.isServer) {
   Meteor.methods({
     clearPairs: function () {
       Pairs.remove({});
     }
   });
-
 }
 
 

@@ -50,6 +50,22 @@
           </div>
         {{/each}}
       </div>
+
+      <div class="col-md-6">
+        <h1>Pair it!</h1>
+        <form class="form-horizontal pair-it">
+          <input type="submit" class="btn btn-primary">
+        </form>
+
+        <h1>Pairs</h1>
+        {{#each pairs}}
+          <div class="panel panel-default">
+            <div class="panel-body">{{person1.name}}</div>
+            <div class="panel-body">{{person2.name}}</div>
+          </div>
+        {{/each}}
+      </div>
+
     </div>
   </div>
 
@@ -83,20 +99,6 @@
               </div>
             </div>
           </div>
-
-
-        <h1>Pair it!</h1>
-        <form class="form-horizontal pair-it">
-          <input type="submit" class="btn btn-primary">
-        </form>
-
-        <h1>Pairs</h1>
-        {{#each pairs}}
-          <div class="panel panel-default">
-            <div class="panel-body">{{person1.name}}</div>
-            <div class="panel-body">{{person2.name}}</div>
-          </div>
-        {{/each}}
 
 
 
