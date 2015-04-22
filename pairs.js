@@ -2,13 +2,13 @@ var People = new Mongo.Collection("people");
 var Pairs = new Mongo.Collection("pairs");
 
 
-pair = function(aaaa){
-  b = _.shuffle(aaaa);
-  midpoint = Math.floor(b.length / 2);
-  bb = b.slice(0,midpoint);
-  cc = b.slice(midpoint, b.length);
+pair = function(list){
+  var shuffled = _.shuffle(list);
+  var midpoint = Math.floor(shuffled.length / 2);
+  var half_one = b.slice(0,midpoint);
+  var half_two = b.slice(midpoint, b.length);
 
-  return [bb, cc];
+  return [half_one, half_two];
 };
 
 if (Meteor.isClient) {
