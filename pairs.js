@@ -64,10 +64,20 @@ if (Meteor.isClient) {
 
       Meteor.call('clearPairs');
 
-      Pairs.insert({
-        person1: People.find().fetch()[0],
-        person2: People.find().fetch()[1]
+      a = pair(People.find().fetch());
+      bb = a[0];
+      cc = a[1];
+      console.log([bb,cc]);
+
+      i = 0
+      a[0].forEach(function() {
+        Pairs.insert({
+          person1: bb[i],
+          person2: cc[i]
+        });
+        i++;
       });
+
       return false;
     }
   });
