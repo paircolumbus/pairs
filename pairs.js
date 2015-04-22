@@ -1,4 +1,6 @@
 var People = new Mongo.Collection("people");
+var Pairs = new Mongo.Collection("pairs");
+
 
 pair = function(aaaa){
   b = _.shuffle(aaaa);
@@ -50,5 +52,16 @@ if (Meteor.isClient) {
         'remove_button'
       ]
     });
+
+  Template.body.events({
+    "submit .pair-it": function (event) {
+
+      pairs = [];
+      pairs.push({
+        person1: People.find().fetch()[0],
+        person2: People.find().fetch()[1]
+      });
+      return false;
+    }
   });
 }
