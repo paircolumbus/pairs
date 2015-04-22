@@ -36,7 +36,10 @@ if (Meteor.isClient) {
           value: input,
           text: input
         };
-      }
+      },
+      plugins: [
+        'remove_button'
+      ]
     });
   });
 }
