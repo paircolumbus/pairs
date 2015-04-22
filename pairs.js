@@ -5,10 +5,13 @@ var Pairs = new Mongo.Collection("pairs");
 pair = function(list){
   var shuffled = _.shuffle(list);
   var midpoint = Math.floor(shuffled.length / 2);
-  var half_one = shuffled.slice(0,midpoint);
-  var half_two = shuffled.slice(midpoint, shuffled.length);
+  var first_half = shuffled.slice(0,midpoint);
+  var second_half = shuffled.slice(midpoint, shuffled.length);
 
-  return [half_one, half_two];
+  return {
+    first_half: first_half,
+    second_half: second_half
+  };
 };
 
 if (Meteor.isClient) {
@@ -65,18 +68,15 @@ if (Meteor.isClient) {
 
       Meteor.call('clearPairs');
 
-      a = pair(People.find().fetch());
-      bb = a[0];
-      cc = a[1];
-      console.log([bb,cc]);
+      pairings = pair(People.find().fetch());
 
-      i = 0
-      a[0].forEach(function() {
+      pairings.second_half.forEach(function(e,i) {
         Pairs.insert({
-          person1: bb[i],
-          person2: cc[i]
+          pair: [
+            pairings.first_half[i],
+            pairings.second_half[i]
+            ]
         });
-        i++;
       });
 
       return false;
