@@ -22,10 +22,21 @@ if (Meteor.isClient) {
       });
 
       event.target.name.value = "";
-      event.target.learning.value = "";
-      event.target.teaching.value = "";
+      $(event.target.learning).clearOptions();
+      $(event.target.teaching).clearOptions();
 
       return false;
     }
+  });
+
+  $(document).ready(function () {
+    $('.input-list').selectize({
+      create: function (input) {
+        return {
+          value: input,
+          text: input
+        };
+      }
+    });
   });
 }

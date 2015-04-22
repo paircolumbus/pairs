@@ -8,3 +8,4 @@ meteor-platform
 autopublish
 insecure
 twbs:bootstrap
+chhib:selectize-bootstrap-3
