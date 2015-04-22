@@ -1,5 +1,14 @@
 var People = new Mongo.Collection("people");
 
+pair = function(aaaa){
+  b = _.shuffle(aaaa);
+  midpoint = Math.floor(b.length / 2);
+  bb = b.slice(0,midpoint);
+  cc = b.slice(midpoint, b.length);
+
+  return [bb, cc];
+};
+
 if (Meteor.isClient) {
   Template.body.helpers({
     people: function () {
