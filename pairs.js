@@ -5,8 +5,8 @@ var Pairs = new Mongo.Collection("pairs");
 pair = function(list){
   var shuffled = _.shuffle(list);
   var midpoint = Math.floor(shuffled.length / 2);
-  var half_one = b.slice(0,midpoint);
-  var half_two = b.slice(midpoint, b.length);
+  var half_one = shuffled.slice(0,midpoint);
+  var half_two = shuffled.slice(midpoint, shuffled.length);
 
   return [half_one, half_two];
 };
