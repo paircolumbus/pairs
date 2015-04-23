@@ -57,16 +57,47 @@
           <input type="submit" class="btn btn-primary">
         </form>
 
-        <div>
-        {{> board}}
-        </div>
+        <h1>Pairs</h1>
+        {{#each pairs}}
+          <div class="panel panel-default">
+            <div class="panel-heading">{{name}}</div>
 
+            <div class="panel-body row">
+            {{#each this.pair}}
+                <div class="col-sm-5">
+                  <span class="">{{this.name}}</span>
+                </div>
+            {{/each}}
+            </div>
 
+            <div class="panel-body row">
+            {{#each this.pair}}
+                <div class="col-sm-5">
+                  <span class="label label-default">{{this.teaching}}</span>
+                </div>
+            {{/each}}
+            </div>
 
+            <div class="panel-body row">
+            {{#each this.pair}}
+                <div class="col-sm-5">
+                  <span class="label label-default">{{this.learning}}</span>
+                </div>
+            {{/each}}
+            </div>
+
+          </div>
+        {{/each}}
       </div>
+
     </div>
   </div>
 
+
+  {{> cards}}
+  <template name="cards">
+    <p>hi</p>
+  </template>
 
 
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -110,21 +141,4 @@
     </div>
   </div>
 </body>
-
-<template name="board">
-  <h1>Whiteboard</h1>
-  <div>
-    <svg id="board" width="500" height="500">
-      <div>
-        {{#each cards}}
-        {{#each this.pair}}
-          {{> card}}
-          <p>{{this.name}}, {{this.teaching}}, {{this.teaching}}</p>
-        {{/each}}
-        {{/each}}
-      </div>
-    </svg>
-
-  </div>
-</template>
 
