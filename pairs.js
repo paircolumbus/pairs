@@ -1,6 +1,5 @@
-var People = new Meteor.Collection("people");
-var Pairs = new Meteor.Collection("pairs");
-var Cards = new Meteor.Collection("cards");
+var People = new Mongo.Collection("people");
+var Pairs = new Mongo.Collection("pairs");
 
 
 pair = function(list){
@@ -19,21 +18,12 @@ if (Meteor.isClient) {
   Template.body.helpers({
     people: function () {
       return People.find({});
-    },
-    pairs: function () {
-      return Pairs.find({});
     }
   });
 
-
-
-  Template.cards.cards = function() {
-    return Pairs.find({});
-  }
-
-  Template.cards.events({
-    'click': function(){
-      alert('clicked it!');
+  Template.body.helpers({
+    pairs: function () {
+      return Pairs.find({});
     }
   });
 
@@ -100,4 +90,10 @@ if (Meteor.isServer) {
     }
   });
 }
+
+
+
+
+
+
 
