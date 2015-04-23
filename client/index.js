@@ -1,5 +1,3 @@
-var People = new Mongo.Collection("people");
-
 if (Meteor.isClient) {
   Template.body.helpers({
     people: function () {
