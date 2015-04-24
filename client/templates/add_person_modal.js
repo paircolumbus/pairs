@@ -6,7 +6,7 @@ Template.addPersonModal.events({
     var learning = event.target.learning.value.split(commaSeparator);
     var teaching = event.target.teaching.value.split(commaSeparator);
 
-    People.insert({
+    Meteor.call('insertPerson', {
       name: name,
       learning: learning,
       teaching: teaching
