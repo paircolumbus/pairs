@@ -8,6 +8,9 @@ Meteor.methods({
   },
   insertPerson: function (doc) {
     People.insert(doc);
+  },
+  resetPairees: function () {
+    People.update({}, {$set : {pairee: null}});
   }
 });
 

@@ -38,7 +38,11 @@ Template.body.events({
     });
 
     //console.log("3");
-
     //return false;
+  },
+  "submit .shuffle-it": function (event) {
+    Meteor.call('resetPairees');
   }
+
+
 });
