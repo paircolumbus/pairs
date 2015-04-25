@@ -1,6 +1,9 @@
 <template name="person">
   <div class="panel panel-default">
-    <div class="panel-heading">{{name}}</div>
+    <div class="panel-heading">
+      <img class="img-rounded" src="{{avatarFor email}}">
+      {{name}}
+    </div>
     <div class="panel-body">
       <strong>Learning</strong>
 
