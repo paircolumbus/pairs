@@ -12,19 +12,30 @@ pair = function(list){
 
 Template.body.events({
   "submit .pair-it": function (event) {
-
     Meteor.call('clearPairs');
 
-    pairings = pair(People.find().fetch());
+    //console.log("1");
+
+    pairings = pair(People.find({pairee: null}).fetch());
+    //console.log("2");
 
     pairings.second_half.forEach(function(e,i) {
+
+      // set each person's pair
+      var id1 = pairings.first_half[i]._id;
+      var id2 = pairings.second_half[i]._id;
+      People.update(id1, {$set: {pairee: id2}});
+      People.update(id2, {$set: {pairee: id1}});
+
       Meteor.call('insertPair', {
         pair: [
           pairings.first_half[i],
           pairings.second_half[i]
-          ]
+        ]
       });
     });
+
+    //console.log("3");
 
     return false;
   }

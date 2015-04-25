@@ -1,6 +1,14 @@
 <template name="person">
   <div class="panel panel-default">
     <div class="panel-heading">{{name}}</div>
+
+    <select class="form-control">
+        <option value="none">none</option>
+      {{#each people}}
+        <option value={{this._id}} selected="{{equals this._id this.pairee}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+
     <div class="panel-body">
       <strong>Learning</strong>
 
@@ -10,6 +18,16 @@
         <span class="label label-default">{{this}}</span>
       {{/each}}
     </div>
+
+    <div class="panel-body row">
+      <div class="col-sm-2"><strong>Learning</strong></div>
+      <div class="col-sm-10">
+        {{#each learning}}
+          <span class="label label-default">{{this}}</span>
+        {{/each}}
+      </div>
+    </div>
+
     <div class="panel-body">
       <strong>Teaching</strong>
 

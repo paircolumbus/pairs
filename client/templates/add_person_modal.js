@@ -9,7 +9,8 @@ Template.addPersonModal.events({
     Meteor.call('insertPerson', {
       name: name,
       learning: learning,
-      teaching: teaching
+      teaching: teaching,
+      pairee: null
     });
 
     event.target.name.value = "";
@@ -18,4 +19,18 @@ Template.addPersonModal.events({
 
     return false;
   }
+});
+
+Template.person.events({
+  'change select': function(e,t){
+    console.log(t);
+    console.log(e);
+    console.log(this.name);
+    People.update(this._id, {$set: {pairee: e.target.value}});
+    return false;
+  }
+});
+
+Template.person.helpers({
+  people: getPeople
 });

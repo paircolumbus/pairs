@@ -9,3 +9,4 @@ Meteor.methods({
     People.insert(doc);
   }
 });
+
