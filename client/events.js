@@ -18,7 +18,7 @@ Template.body.events({
     pairings = pair(People.find().fetch());
 
     pairings.second_half.forEach(function(e,i) {
-      Pairs.insert({
+      Meteor.call('insertPair', {
         pair: [
           pairings.first_half[i],
           pairings.second_half[i]
