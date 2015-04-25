@@ -1,0 +1,11 @@
+<template name="people">
+  <h1>People</h1>
+  <p>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPersonModal">
+      Add person
+    </button>
+  </p>
+  {{#each people}}
+    {{>person}}
+  {{/each}}
+</template>
