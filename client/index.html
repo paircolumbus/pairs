@@ -42,16 +42,9 @@
 
         {{#each pairs}}
           <div class="row">
-            <div class="panel panel-default">
-
-              <div class="panel-heading">pair- {{name}} </div>
-              <div class="panel-body row">
-                {{#each this.pair}}
-                  <div class="col-md-6">{{>person}}</div>
-                {{/each}}
-              </div>
-
-            </div>
+            {{#each this.pair}}
+              <div class="col-md-6">{{>person}}</div>
+            {{/each}}
           </div>
         {{/each}}
       </div>
