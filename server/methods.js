@@ -1,6 +1,7 @@
 Meteor.methods({
   clearPairs: function () {
     Pairs.remove({});
+    console.log("cleared pairs");
   },
   insertPair: function (doc) {
     Pairs.insert(doc);

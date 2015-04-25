@@ -14,10 +14,11 @@ Template.body.events({
   "submit .pair-it": function (event) {
     Meteor.call('clearPairs');
 
-    //console.log("1");
+    console.log("cleared pairs");
 
     pairings = pair(People.find({pairee: null}).fetch());
     //console.log("2");
+    console.log(pairings);
 
     pairings.second_half.forEach(function(e,i) {
 
@@ -26,6 +27,7 @@ Template.body.events({
       var id2 = pairings.second_half[i]._id;
       People.update(id1, {$set: {pairee: id2}});
       People.update(id2, {$set: {pairee: id1}});
+      console.log("paired: " + [id1, id2]);
 
       Meteor.call('insertPair', {
         pair: [
@@ -37,6 +39,6 @@ Template.body.events({
 
     //console.log("3");
 
-    return false;
+    //return false;
   }
 });

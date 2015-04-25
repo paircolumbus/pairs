@@ -1,5 +1,6 @@
 Template.body.helpers({
   pairs: function () {
+    console.log("calling pairs");
     return Pairs.find({});
   },
   unpaired: function () {
