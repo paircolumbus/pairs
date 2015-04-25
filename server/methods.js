@@ -10,7 +10,7 @@ Meteor.methods({
     People.insert(doc);
   },
   resetPairees: function () {
-    People.update({}, {$set : {pairee: null}});
+    People.update({}, {$set : {pairee: null}}, {multi: true});
   }
 });
 
