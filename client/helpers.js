@@ -4,7 +4,7 @@ Template.body.helpers({
     return Pairs.find({});
   },
   unpaired: function () {
-    return People.find({"pairee": "none"});
+    return People.find({$or: [{"pairee": "none"}, {"pairee": null}]});
   },
   people: getPeople
 });

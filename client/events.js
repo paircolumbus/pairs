@@ -10,39 +10,46 @@ pair = function(list){
   };
 };
 
-Template.body.events({
-  "submit .pair-it": function (event) {
-    Meteor.call('clearPairs');
 
-    console.log("cleared pairs");
+generatePairs = function () {
+  Meteor.call('clearPairs');
 
-    pairings = pair(People.find({pairee: null}).fetch());
-    //console.log("2");
-    console.log(pairings);
+  pairings = pair(People.find({$or: [{pairee: null},{pairee: "none"}]}).fetch());
 
-    pairings.second_half.forEach(function(e,i) {
+  pairings.first_half.forEach(function(e,i) {
 
-      // set each person's pair
-      var id1 = pairings.first_half[i]._id;
-      var id2 = pairings.second_half[i]._id;
-      People.update(id1, {$set: {pairee: id2}});
-      People.update(id2, {$set: {pairee: id1}});
-      console.log("paired: " + [id1, id2]);
+    // set each person's pair
+    id1 = pairings.first_half[i]._id;
+    id2 = pairings.second_half[i]._id;
 
-      Meteor.call('insertPair', {
-        pair: [
-          pairings.first_half[i],
-          pairings.second_half[i]
-        ]
-      });
+    Meteor.call('insertPair', {
+      pair: [
+        pairings.first_half[i],
+        pairings.second_half[i]
+      ]
+    }, function(error, result){
+      pair_id = result;
+
+      console.log("id1 is " + id1);
+      console.log("id2 is " + id2);
+      console.log("pair_id is " + pair_id);
+
+      People.update({_id: id1}, {$set: {pairee: pair_id}});
+      People.update({_id: id2}, {$set: {pairee: pair_id}});
     });
 
-    //console.log("3");
-    //return false;
+  });
+}
+
+Template.body.events({
+  "submit .pair-it": function (event) {
+    generatePairs();
   },
   "submit .shuffle-it": function (event) {
     Meteor.call('resetPairees');
+    generatePairs();
   }
-
-
 });
+
+
+

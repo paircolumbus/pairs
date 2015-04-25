@@ -7,3 +7,5 @@
 meteor-platform
 twbs:bootstrap
 chhib:selectize-bootstrap-3
+autopublish
+insecure
