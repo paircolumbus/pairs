@@ -1,10 +1,20 @@
+function pairs() {
+  console.log("calling pairs");
+  return Pairs.find({});
+}
+
+function unpaired() {
+  return People.find({$or: [{"pairee": "none"}, {"pairee": null}]});
+}
+
 Template.body.helpers({
-  pairs: function () {
-    console.log("calling pairs");
-    return Pairs.find({});
+  pairs: pairs,
+  unpaired: unpaired,
+  numberOfPairs: function () {
+    return pairs().count();
   },
-  unpaired: function () {
-    return People.find({$or: [{"pairee": "none"}, {"pairee": null}]});
+  numberOfUnpaired: function () {
+    return unpaired().count();
   },
   people: getPeople
 });
