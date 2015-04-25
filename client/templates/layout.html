@@ -1,0 +1,18 @@
+<template name="layout">
+  <head>
+    <title>Pairs</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1><img class="logo" src="http://paircolumbus.org/images/logo-transparent.png"> Pairs <small>Find other people to pair with based on shared interests and skills.</small></h1>
+      </div>
+
+      {{>yield}}
+    </div>
+
+    {{>addPersonModal}}
+  </body>
+</template>
