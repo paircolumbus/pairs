@@ -1,9 +1,13 @@
 Template.fullscreen.rendered = function () {
-// Instantiate grid
+
+  // order the pairs
+  Meteor.call('orderPairs');
+
+  // Instantiate grid
   var gridstackOptions = {};
   $('.grid-stack').gridstack(gridstackOptions);
 
- // add onChange event listener
+  // add onChange event listener
   $('.grid-stack').on('change',function (event, items) {
     _.each(items, function (item) {
         var attributes = item.el.data();
