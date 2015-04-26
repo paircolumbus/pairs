@@ -8,11 +8,9 @@
       </form>
     </div>
 
-
     <select class="form-control">
-        <option value="none">none</option>
-      {{#each people}}
-        <option value={{this._id}} selected="{{equals this._id this.pairee}}">{{this.name}}</option>
+      {{#each unpaired}}
+        <option value={{this._id}}>{{this.name}}</option>
       {{/each}}
     </select>
 
