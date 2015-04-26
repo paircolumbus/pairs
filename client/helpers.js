@@ -4,5 +4,8 @@ Template.body.helpers({
   },
   people: function () {
     return People.find({});
+  },
+  unpaired: function () {
+    return People.find({ paired: { $not: true } });
   }
 });

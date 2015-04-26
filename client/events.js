@@ -18,12 +18,7 @@ Template.body.events({
     pairings = pair(People.find().fetch());
 
     pairings.second_half.forEach(function(e,i) {
-      Meteor.call('insertPair', {
-        pair: [
-          pairings.first_half[i],
-          pairings.second_half[i]
-          ]
-      });
+      Meteor.call('insertPair', pairings.first_half[i], pairings.second_half[i]);
     });
 
     return false;
