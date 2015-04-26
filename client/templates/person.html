@@ -1,6 +1,5 @@
 <template name="person">
   <div class="panel panel-default">
-
     <div class="panel-heading">
       <img class="img-rounded" src="{{avatarFor email}}">
       <b>{{name}}</b>
@@ -15,24 +14,23 @@
       </form>
     </div>
 
-    <div class="panel-body">
-      <strong>Learning</strong>
-
-      <br>
-
-      {{#each learning}}
-        <span class="label label-default">{{this}}</span>
-      {{/each}}
-    </div>
-
-    <div class="panel-body">
-      <strong>Teaching</strong>
-
-      <br>
-
-      {{#each teaching}}
-        <span class="label label-default">{{this}}</span>
-      {{/each}}
-    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Learning</th>
+          <th>Teaching</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{#each learning}}
+            <span class="label label-default">{{this}}</span>
+          {{/each}}</td>
+          <td>{{#each teaching}}
+            <span class="label label-default">{{this}}</span>
+          {{/each}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
