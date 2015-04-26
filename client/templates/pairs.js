@@ -50,3 +50,9 @@ Template.pairs.events({
     return false;
   }
 });
+
+Template.pairs.rendered = function () {
+  $(document).ready(function () {
+    $.material.init();
+  });
+};

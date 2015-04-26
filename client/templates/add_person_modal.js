@@ -23,6 +23,8 @@ Template.addPersonModal.events({
 
 Template.addPersonModal.rendered = function () {
   $(document).ready(function () {
+    $.material.init();
+
     $('.input-list').selectize({
       create: function (input) {
         return {

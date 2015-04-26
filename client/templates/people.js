@@ -3,3 +3,9 @@ Template.people.helpers({
     return People.find({});
   }
 });
+
+Template.people.rendered = function () {
+  $(document).ready(function () {
+    $.material.init();
+  });
+};
