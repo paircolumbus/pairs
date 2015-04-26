@@ -33,4 +33,3 @@ Meteor.methods({
     People.update({}, {$set: {pairee: null}}, {multi: true});
   }
 });
-

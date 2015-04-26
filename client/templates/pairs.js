@@ -1,5 +1,4 @@
 function pairs() {
-  console.log("calling pairs");
   return Pairs.find({});
 }
 
