@@ -19,22 +19,15 @@ Meteor.methods({
   unpair: function (doc) {
     // find the pair with the person in it
     var person_id = doc.id;
-    a = People.find(person_id);
-    console.log(a);
-    console.log(a.fetch());
-
-    var pair_id = 
-    console.log("pair_id is " + pair_id);
-    b = Pairs.find(pair_id).fetch();
+    var a = People.findOne(person_id);
+    var pair_id = a.pairee
 
     // find the other people in the pair
-    console.log(b);
-
-    // remove their pair_id links
-
-    // remove the person's pair_id links
+    // and remove their pair_id links
+    People.update({pairee: pair_id}, {$set: {pairee: "none"}}, {multi: true});
 
     // remove the pair
+    Pairs.remove(pair_id);
   },
   resetPairees: function () {
     People.update({}, {$set: {pairee: null}}, {multi: true});
