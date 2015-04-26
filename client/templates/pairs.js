@@ -1,3 +1,9 @@
+Template.pairs.helpers({
+  pairs: function () {
+    return Pairs.find({});
+  }
+});
+
 pair = function(list){
   var shuffled = _.shuffle(list);
   var midpoint = Math.floor(shuffled.length / 2);
@@ -10,7 +16,8 @@ pair = function(list){
   };
 };
 
-Template.body.events({
+
+Template.pairs.events({
   "submit .pair-it": function (event) {
 
     Meteor.call('clearPairs');
@@ -28,4 +35,4 @@ Template.body.events({
 
     return false;
   }
-});
+})
