@@ -22,20 +22,22 @@ generatePairs = function () {
     id1 = pairings.first_half[i]._id;
     id2 = pairings.second_half[i]._id;
 
-    Meteor.call('insertPair', {
-      pair: [
-        pairings.first_half[i],
-        pairings.second_half[i]
-      ]
-    }, function(error, result){
+    Meteor.call('insertPair', {abc: "123"}, function(error,result) {
       pair_id = result;
 
-      console.log("id1 is " + id1);
-      console.log("id2 is " + id2);
-      console.log("pair_id is " + pair_id);
+      Meteor.call('insertPair', {
+        pair: [
+          pairings.first_half[i],
+          pairings.second_half[i]
+        ]
+      }, function(error, result){
+        console.log("id1 is " + id1);
+        console.log("id2 is " + id2);
+        console.log("pair_id is " + pair_id);
 
-      People.update({_id: id1}, {$set: {pairee: pair_id}});
-      People.update({_id: id2}, {$set: {pairee: pair_id}});
+        People.update({_id: id1}, {$set: {pairee: pair_id}});
+        People.update({_id: id2}, {$set: {pairee: pair_id}});
+      });
     });
 
   });
