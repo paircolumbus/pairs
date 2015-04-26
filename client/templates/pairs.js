@@ -31,7 +31,7 @@ pair = function(list){
 
 clearPairs = function() {
   Meteor.call('clearPairs');
-}
+};
 
 generatePairs = function () {
 
@@ -48,7 +48,7 @@ generatePairs = function () {
     });
 
   });
-}
+};
 
 Template.pairs.events({
   "submit .remove-it": function (event) {

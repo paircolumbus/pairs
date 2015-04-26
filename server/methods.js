@@ -20,7 +20,7 @@ Meteor.methods({
     // find the pair with the person in it
     var person_id = doc.id;
     var a = People.findOne(person_id);
-    var pair_id = a.pairee
+    var pair_id = a.pairee;
 
     // find the other people in the pair
     // and remove their pair_id links
