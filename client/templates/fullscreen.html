@@ -1,16 +1,28 @@
 <template name="fullscreen">
 <a type="submit" class="pull-right btn btn-primary manage-it" href="/pairs">Manage</a>
+<br>
 
+  <div class="grid-stack">
   {{#each pairs}}
-    <div class="row">
-      {{#each this.pair}}
-        <div class="col-md-2">{{>zoom}}</div>
-      {{/each}}
-    </div>
+    {{#each this.pair}}
+      {{> gridstackItem}}
+    {{/each}}
   {{/each}}
+  </div>
 
   <h2>Unpaired</h2>
   {{#each unpaired}}
     <div class="col-md-2">{{>zoom}}</div>
   {{/each}}
+</template>
+
+
+
+<template name="gridstackItem">
+  <div class="grid-stack-item"
+    data-gs-x={{x}} data-gs-y={{y}}
+    data-gs-width={{width}} data-gs-height={{height}}
+    data-panel-id={{_id}} data-content-id={{contentId}}>
+    <div class="grid-stack-item-content">{{>zoom}}</div>
+  </div>
 </template>

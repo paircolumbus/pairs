@@ -22,7 +22,9 @@ Meteor.methods({
     Pairs.update({_id: pair_id}, {$set: {pair: People.find({_id: id1}).fetch().concat(People.find({_id: id2}).fetch())}});
   },
   insertPerson: function (doc) {
-    People.insert(doc);
+    var id = People.insert(doc);
+    People.update(id, {$set: {x: 1}})
+    People.update(id, {$set: {y: 1}})
   },
   generatePerson: function () {
     People.insert({
@@ -46,6 +48,13 @@ Meteor.methods({
   },
   isPaired: function(id){
     return People.findOne(id).pairee;
+  },
+  orderedPairs: function(){
+    var pairs = Pairs.find({}).fetch();
+    pairs.forEach(function(d,i){
+      return false;
+    });
+    return Pairs.find({});
   },
   unpair: function (doc) {
     // find the pair with the person in it
