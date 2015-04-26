@@ -2,6 +2,13 @@
   <div class="panel panel-default">
     <div class="panel-heading">{{name}}</div>
 
+    <div class="col-md-3">
+      <form class="form-horizontal remove-one">
+        <input type="submit" class="btn btn-primary" value="-">
+      </form>
+    </div>
+
+
     <select class="form-control">
         <option value="none">none</option>
       {{#each people}}
