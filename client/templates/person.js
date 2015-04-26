@@ -7,7 +7,7 @@ Template.person.events({
     }
     return false;
   },
-  "submit .remove-one": function (event) {
+  "click .remove-one": function (event) {
     Meteor.call('unpair', {id: this._id});
     return false;
   }

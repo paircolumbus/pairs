@@ -40,12 +40,12 @@ generatePairs = function () {
 };
 
 Template.pairs.events({
-  "submit .remove-it": function (event) {
+  "click .remove-it": function (event) {
     Meteor.call('resetPairees');
     Meteor.call('clearPairs');
     return false;
   },
-  "submit .pair-it": function (event) {
+  "click .pair-it": function (event) {
     generatePairs();
     return false;
   }
