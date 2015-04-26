@@ -34,18 +34,3 @@ Template.addPersonModal.rendered = function () {
     ]
   });
 };
-
-Template.person.events({
-  'change select': function(e,t){
-    People.update(this._id, {$set: {pairee: e.target.value}});
-    return false;
-  },
-  "submit .remove-one": function (event) {
-    Meteor.call('unpair', {id: this._id});
-    return false;
-  }
-});
-
-Template.person.helpers({
-  people: getPeople
-});

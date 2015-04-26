@@ -1,10 +1,10 @@
 Template.person.events({
   'change select': function(e,t){
-    People.update(this._id, {$set: {pairee: e.target.value}});
+    Meteor.setPairee(this._id, e.target.value);
     return false;
   },
   "submit .remove-one": function (event) {
-    //unpair();
+    Meteor.call('unpair', {id: this._id});
     return false;
   }
 });

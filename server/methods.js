@@ -16,6 +16,9 @@ Meteor.methods({
   insertPerson: function (doc) {
     People.insert(doc);
   },
+  setPairee: function (source, destination) {
+    People.update(source, {$set: {pairee: destination}});
+  },
   unpair: function (doc) {
     // find the pair with the person in it
     var person_id = doc.id;
