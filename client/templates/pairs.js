@@ -1,6 +1,12 @@
 Template.pairs.helpers({
   pairs: function () {
     return Pairs.find({});
+  },
+  numberOfPairs: function () {
+    return Pairs.find({}).count();
+  },
+  numberOfUnpaired: function () {
+    return People.find({ pairee: null }).count();
   }
 });
 
@@ -16,23 +22,31 @@ pair = function(list){
   };
 };
 
+generatePairs = function () {
 
-Template.pairs.events({
-  "submit .pair-it": function (event) {
+  pairings = pair(People.find({$or: [{pairee: null}]}).fetch());
 
-    Meteor.call('clearPairs');
+  pairings.first_half.forEach(function(e,i) {
 
-    pairings = pair(People.find().fetch());
+    // set each person's pair
+    id1 = pairings.first_half[i]._id;
+    id2 = pairings.second_half[i]._id;
 
-    pairings.second_half.forEach(function(e,i) {
-      Meteor.call('insertPair', {
-        pair: [
-          pairings.first_half[i],
-          pairings.second_half[i]
-          ]
-      });
+    Meteor.call('insertPair', {
+      pair: [ id1, id2 ]
     });
 
+  });
+};
+
+Template.pairs.events({
+  "submit .remove-it": function (event) {
+    Meteor.call('resetPairees');
+    Meteor.call('clearPairs');
+    return false;
+  },
+  "submit .pair-it": function (event) {
+    generatePairs();
     return false;
   }
 });

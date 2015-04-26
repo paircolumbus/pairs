@@ -9,7 +9,8 @@ Template.addPersonModal.events({
     Meteor.call('insertPerson', {
       name: name,
       learning: learning,
-      teaching: teaching
+      teaching: teaching,
+      pairee: null
     });
 
     event.target.name.value = "";
