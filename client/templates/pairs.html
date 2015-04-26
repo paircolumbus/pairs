@@ -1,5 +1,8 @@
 <template name="pairs">
-  <h2>Pairs</h2>
+  <h2>
+    Pairs
+    <span class="badge">{{numberOfPairs}}</span>
+  </h2>
   <div class="btn-group btn-group-justified" role="group">
     <div class="btn-group" role="group">
       <button type="button" class="btn btn-primary pair-it">Generate pairs</button>
@@ -10,8 +13,6 @@
     <a class="btn btn-primary" href="/people" role="button">View people</a>
   </div>
 
-  <p># of pairs: {{numberOfPairs}}</p>
-  <p># of unpaired: {{numberOfUnpaired}}</p>
 
   {{#each pairs}}
     <div class="row">
@@ -21,7 +22,10 @@
     </div>
   {{/each}}
 
-  <h2>Unpaired</h2>
+  <h2>
+    Unpaired
+    <span class="badge">{{numberOfUnpaired}}</span>
+  </h2>
   {{#each unpaired}}
     {{>person}}
   {{/each}}
