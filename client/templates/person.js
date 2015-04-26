@@ -10,7 +10,7 @@ Template.person.events({
 });
 
 function getUnpaired() {
-  return People.find({$or: [{"pairee": "none"}, {"pairee": null}]});
+  return People.find({$or: [{"pairee": null}]});
 }
 
 Template.person.helpers({

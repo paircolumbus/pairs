@@ -24,7 +24,7 @@ Meteor.methods({
 
     // find the other people in the pair
     // and remove their pair_id links
-    People.update({pairee: pair_id}, {$set: {pairee: "none"}}, {multi: true});
+    People.update({pairee: pair_id}, {$set: {pairee: null}}, {multi: true});
 
     // remove the pair
     Pairs.remove(pair_id);

@@ -3,7 +3,7 @@ function pairs() {
 }
 
 function unpaired() {
-  return People.find({$or: [{"pairee": "none"}, {"pairee": null}]});
+  return People.find({$or: [{"pairee": null}]});
 }
 
 Template.pairs.helpers({
@@ -35,7 +35,7 @@ clearPairs = function() {
 
 generatePairs = function () {
 
-  pairings = pair(People.find({$or: [{pairee: null},{pairee: "none"}]}).fetch());
+  pairings = pair(People.find({$or: [{pairee: null}]}).fetch());
 
   pairings.first_half.forEach(function(e,i) {
 
