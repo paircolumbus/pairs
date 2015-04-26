@@ -2,18 +2,24 @@
   <div class="panel panel-default">
 
     <div class="panel-heading">
-      <div>{{name}}
+      <div><b>{{name}}</b>
         <form class="pull-right form-horizontal remove-one">
           <input type="submit" class="" value="-">
         </form>
       </div>
     </div>
 
-    <select class="form-control">
-      {{#each unpaired}}
-        <option value={{this._id}}>{{this.name}}</option>
-      {{/each}}
-    </select>
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="pull-right col-md-3">
+        <select class="form-control">
+          {{#each unpaired}}
+            <option value={{this._id}}>{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+
 
     <div class="panel-body">
       <strong>Learning</strong>
