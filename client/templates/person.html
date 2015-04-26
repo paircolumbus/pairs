@@ -1,11 +1,12 @@
 <template name="person">
   <div class="panel panel-default">
-    <div class="panel-heading">{{name}}</div>
 
-    <div class="col-md-3">
-      <form class="form-horizontal remove-one">
-        <input type="submit" class="btn btn-primary" value="-">
-      </form>
+    <div class="panel-heading">
+      <div>{{name}}
+        <form class="pull-right form-horizontal remove-one">
+          <input type="submit" class="btn btn-default" value="-">
+        </form>
+      </div>
     </div>
 
     <select class="form-control">
