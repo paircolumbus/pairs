@@ -21,6 +21,38 @@ Meteor.methods({
 
     Pairs.update({_id: pair_id}, {$set: {pair: People.find({_id: id1}).fetch().concat(People.find({_id: id2}).fetch())}});
   },
+  orderPairs: function(){
+    var gridxy = function(){
+      x=0;y=0;
+      return function(){
+        y++;
+        if (y > 5){
+          y = 0;
+          x = x + 3;
+        }
+        return [x,y,x+1,y];
+      }
+    }();
+    var pairs = Pairs.find({}).fetch();
+    pairs.forEach(function(d,i){
+      cs = gridxy();
+      // take the people out,
+      // update their positions
+      // and put them back in
+      pair_id = d._id;
+      id1 = d.pair[0]._id;
+      id2 = d.pair[1]._id;
+
+      People.update({_id: id1}, {$set: {x: cs[0]}});
+      People.update({_id: id1}, {$set: {y: cs[1]}});
+      People.update({_id: id2}, {$set: {x: cs[2]}});
+      People.update({_id: id2}, {$set: {y: cs[3]}});
+
+      Pairs.update({_id: pair_id}, {$set: {pair: People.find({_id: id1}).fetch().concat(People.find({_id: id2}).fetch())}});
+      return false;
+    });
+    return Pairs.find({});
+  },
   insertPerson: function (doc) {
     var id = People.insert(doc);
     People.update(id, {$set: {x: 1}})
@@ -48,13 +80,6 @@ Meteor.methods({
   },
   isPaired: function(id){
     return People.findOne(id).pairee;
-  },
-  orderedPairs: function(){
-    var pairs = Pairs.find({}).fetch();
-    pairs.forEach(function(d,i){
-      return false;
-    });
-    return Pairs.find({});
   },
   unpair: function (doc) {
     // find the pair with the person in it
