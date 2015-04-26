@@ -7,4 +7,5 @@
 meteor-platform
 twbs:bootstrap
 chhib:selectize-bootstrap-3
+iron:router
 jparker:gravatar
