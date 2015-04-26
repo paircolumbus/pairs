@@ -35,4 +35,4 @@ Template.pairs.events({
 
     return false;
   }
-})
+});
