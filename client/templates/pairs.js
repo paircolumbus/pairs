@@ -1,19 +1,12 @@
-function pairs() {
-  return Pairs.find({});
-}
-
-function unpaired() {
-  return People.find({$or: [{"pairee": null}]});
-}
-
 Template.pairs.helpers({
-  pairs: pairs,
-  unpaired: unpaired,
+  pairs: function () {
+    return Pairs.find({});
+  },
   numberOfPairs: function () {
-    return pairs().count();
+    return Pairs.find({}).count();
   },
   numberOfUnpaired: function () {
-    return unpaired().count();
+    return People.find({ pairee: null }).count();
   }
 });
 
@@ -27,10 +20,6 @@ pair = function(list){
     first_half: first_half,
     second_half: second_half
   };
-};
-
-clearPairs = function() {
-  Meteor.call('clearPairs');
 };
 
 generatePairs = function () {
@@ -53,7 +42,7 @@ generatePairs = function () {
 Template.pairs.events({
   "submit .remove-it": function (event) {
     Meteor.call('resetPairees');
-    clearPairs();
+    Meteor.call('clearPairs');
     return false;
   },
   "submit .pair-it": function (event) {

@@ -8,12 +8,3 @@ Template.person.events({
     return false;
   }
 });
-
-function getUnpaired() {
-  return People.find({$or: [{"pairee": null}]});
-}
-
-Template.person.helpers({
-  people: getPeople,
-  unpaired: getUnpaired
-});

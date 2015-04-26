@@ -1,3 +1,5 @@
 Template.people.helpers({
-  people: getPeople
+  people: function () {
+    return People.find({});
+  }
 });
