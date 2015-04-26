@@ -1,4 +1,4 @@
-$(document).ready(function () {
+Template.addPersonModal.rendered = function () {
   $('.input-list').selectize({
     create: function (input) {
       return {
@@ -10,4 +10,4 @@ $(document).ready(function () {
       'remove_button'
     ]
   });
-});
+};
