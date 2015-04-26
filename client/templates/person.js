@@ -1,6 +1,6 @@
 Template.person.events({
   'change select': function(e,t){
-    Meteor.setPairee(this._id, e.target.value);
+    Meteor.call('createPair', this._id, e.target.value);
     return false;
   },
   "submit .remove-one": function (event) {

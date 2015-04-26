@@ -16,8 +16,20 @@ Meteor.methods({
   insertPerson: function (doc) {
     People.insert(doc);
   },
-  setPairee: function (source, destination) {
-    People.update(source, {$set: {pairee: destination}});
+  createPair: function (id1, id2) {
+    // if id1 is already part of a pair,
+    // remove that pair
+    // this is not possible with id2,
+    // because id2 comes from the unpaired list
+    if (Meteor.call('isPaired', id1)){
+      Meteor.call('unpair', {id: id1});
+    }
+
+    // create the pair
+    Meteor.call('insertPair', {pair: [id1, id2]});
+  },
+  isPaired: function(id){
+    return People.findOne(id).pairee;
   },
   unpair: function (doc) {
     // find the pair with the person in it
