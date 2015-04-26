@@ -11,8 +11,11 @@ pair = function(list){
 };
 
 
-generatePairs = function () {
+clearPairs = function() {
   Meteor.call('clearPairs');
+}
+
+generatePairs = function () {
 
   pairings = pair(People.find({$or: [{pairee: null},{pairee: "none"}]}).fetch());
 
@@ -22,33 +25,19 @@ generatePairs = function () {
     id1 = pairings.first_half[i]._id;
     id2 = pairings.second_half[i]._id;
 
-    Meteor.call('insertPair', {abc: "123"}, function(error,result) {
-      pair_id = result;
-
-      Meteor.call('insertPair', {
-        pair: [
-          pairings.first_half[i],
-          pairings.second_half[i]
-        ]
-      }, function(error, result){
-        console.log("id1 is " + id1);
-        console.log("id2 is " + id2);
-        console.log("pair_id is " + pair_id);
-
-        People.update({_id: id1}, {$set: {pairee: pair_id}});
-        People.update({_id: id2}, {$set: {pairee: pair_id}});
-      });
+    Meteor.call('insertPair', {
+      pair: [ id1, id2 ]
     });
 
   });
 }
 
 Template.body.events({
-  "submit .pair-it": function (event) {
-    generatePairs();
-  },
-  "submit .shuffle-it": function (event) {
+  "submit .remove-it": function (event) {
     Meteor.call('resetPairees');
+    clearPairs();
+  },
+  "submit .pair-it": function (event) {
     generatePairs();
   }
 });

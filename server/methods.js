@@ -3,9 +3,14 @@ Meteor.methods({
     Pairs.remove({});
   },
   insertPair: function (doc) {
-    var pair_id = Pairs.insert(doc);
-    console.log("pair_id is " + pair_id);
-    return pair_id;
+    id1 = doc.pair[0];
+    id2 = doc.pair[1];
+
+    pair_id = Pairs.insert(doc);
+
+    People.update({_id: id1}, {$set: {pairee: pair_id}});
+    People.update({_id: id2}, {$set: {pairee: pair_id}});
+
   },
   insertPerson: function (doc) {
     People.insert(doc);
