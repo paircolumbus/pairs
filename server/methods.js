@@ -21,8 +21,42 @@ Meteor.methods({
 
     Pairs.update({_id: pair_id}, {$set: {pair: People.find({_id: id1}).fetch().concat(People.find({_id: id2}).fetch())}});
   },
+  orderPairs: function(){
+    var gridxy = function(){
+      x=0;y=0;
+      return function(){
+        if (y > 5){
+          y = 0;
+          x = x + 3;
+        }
+        ry = y; y++;
+        return [x,ry,x+1,ry];
+      }
+      return [1,2,2,2];
+    };
+    var pairs = Pairs.find({}).fetch();
+    pairs.forEach(function(d,i){
+      cs = gridxy();
+      // take the people out,
+      // update their positions
+      // and put them back in
+      pair_id = d._id;
+      id1 = d.pair[0]._id;
+      id2 = d.pair[1]._id;
+
+      People.update({_id: id1}, {$set: {x: cs[0]}});
+      People.update({_id: id1}, {$set: {y: cs[1]}});
+      People.update({_id: id2}, {$set: {x: cs[2]}});
+      People.update({_id: id2}, {$set: {y: cs[3]}});
+
+      Pairs.update({_id: pair_id}, {$set: {pair: People.find({_id: id1}).fetch().concat(People.find({_id: id2}).fetch())}});
+    });
+    //return Pairs.find({});
+  },
   insertPerson: function (doc) {
-    People.insert(doc);
+    var id = People.insert(doc);
+    People.update(id, {$set: {x: 1}})
+    People.update(id, {$set: {y: 1}})
   },
   generatePerson: function () {
     People.insert({

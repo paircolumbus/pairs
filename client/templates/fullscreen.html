@@ -1,0 +1,25 @@
+<template name="fullscreen">
+<a type="submit" class="pull-right btn btn-primary manage-it" href="/pairs">Manage</a>
+<br>
+<br>
+<br>
+
+  <div>
+  {{#each pairs}}
+    <div class="row">
+    {{#with this.pair.[0]}}
+      {{> zoom}}
+    {{/with}}
+    {{#with this.pair.[1]}}
+      {{> zoom}}
+    {{/with}}
+    </div>
+  {{/each}}
+  </div>
+
+  <h2>Unpaired</h2>
+  {{#each unpaired}}
+    <div class="col-md-2">{{>zoom}}</div>
+  {{/each}}
+</template>
+
