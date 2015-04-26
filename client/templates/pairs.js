@@ -1,3 +1,23 @@
+function pairs() {
+  console.log("calling pairs");
+  return Pairs.find({});
+}
+
+function unpaired() {
+  return People.find({$or: [{"pairee": "none"}, {"pairee": null}]});
+}
+
+Template.pairs.helpers({
+  pairs: pairs,
+  unpaired: unpaired,
+  numberOfPairs: function () {
+    return pairs().count();
+  },
+  numberOfUnpaired: function () {
+    return unpaired().count();
+  }
+});
+
 pair = function(list){
   var shuffled = _.shuffle(list);
   var midpoint = Math.floor(shuffled.length / 2);
@@ -9,7 +29,6 @@ pair = function(list){
     second_half: second_half
   };
 };
-
 
 clearPairs = function() {
   Meteor.call('clearPairs');
@@ -32,7 +51,7 @@ generatePairs = function () {
   });
 }
 
-Template.body.events({
+Template.pairs.events({
   "submit .remove-it": function (event) {
     Meteor.call('resetPairees');
     clearPairs();
@@ -40,7 +59,4 @@ Template.body.events({
   "submit .pair-it": function (event) {
     generatePairs();
   }
-});
-
-
-
+})

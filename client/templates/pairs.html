@@ -1,0 +1,31 @@
+<template name="pairs">
+  <h2>Pairs</h2>
+  <p>
+    <div class="col-md-3">
+      <form class="form-horizontal pair-it">
+        <input type="submit" class="btn btn-primary" value="Generate pairs">
+      </form>
+    </div>
+
+    <div class="col-md-3">
+      <form class="form-horizontal remove-it">
+        <input type="submit" class="btn btn-primary" value="Clear pairs">
+      </form>
+    </div>
+  </p>
+  <p># of pairs: {{numberOfPairs}}</p>
+  <p># of unpaired: {{numberOfUnpaired}}</p>
+
+  {{#each pairs}}
+    <div class="row">
+      {{#each this.pair}}
+        <div class="col-md-6">{{>person}}</div>
+      {{/each}}
+    </div>
+  {{/each}}
+
+  <h2>Unpaired</h2>
+  {{#each unpaired}}
+    {{>person}}
+  {{/each}}
+</template>
