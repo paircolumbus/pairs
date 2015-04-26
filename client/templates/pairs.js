@@ -59,4 +59,4 @@ Template.pairs.events({
   "submit .pair-it": function (event) {
     generatePairs();
   }
-})
+});
