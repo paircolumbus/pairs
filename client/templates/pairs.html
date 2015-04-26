@@ -1,7 +1,13 @@
 <template name="pairs">
   <h2>Pairs</h2>
-  <button type="button" class="btn btn-primary pair-it">Generate pairs</button>
-  <button type="button" class="btn btn-primary remove-it">Clear pairs</button>
+  <div class="btn-group btn-group-justified" role="group">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-default pair-it">Generate pairs</button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-default remove-it">Clear pairs</button>
+    </div>
+  </div>
 
   <p># of pairs: {{numberOfPairs}}</p>
   <p># of unpaired: {{numberOfUnpaired}}</p>

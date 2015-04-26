@@ -1,8 +1,12 @@
 <template name="people">
   <h2>People</h2>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPersonModal">
-    Add person
-  </button>
+  <div class="btn-group btn-group-justified" role="group">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addPersonModal">
+        Add person
+      </button>
+    </div>
+  </div>
   {{#each people}}
     {{>person}}
   {{/each}}
