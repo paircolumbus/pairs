@@ -1,4 +1,4 @@
-# Pairs
+# [Pairs](http://pairs.meteor.com/)
 Find other people to pair with based on shared interests and skills.
 
 ## Usage
