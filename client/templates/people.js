@@ -4,6 +4,12 @@ Template.people.helpers({
   }
 });
 
+Template.people.events({
+  'click .generate-person': function () {
+    Meteor.call('generatePerson');
+  }
+});
+
 Template.people.rendered = function () {
   $(document).ready(function () {
     $.material.init();
