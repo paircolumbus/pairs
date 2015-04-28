@@ -20,6 +20,7 @@ Meteor.methods({
     People.update({_id: id2}, {$set: {pairee: pair_id}});
 
     Pairs.update({_id: pair_id}, {$set: {pair: People.find({_id: id1}).fetch().concat(People.find({_id: id2}).fetch())}});
+    Meteor.call('pairedBefore', id1, id2);
   },
   insertPerson: function (doc) {
     People.insert(doc);
@@ -62,5 +63,28 @@ Meteor.methods({
   },
   resetPairees: function () {
     People.update({}, {$set: {pairee: null}}, {multi: true});
+  },
+  savePairs: function () {
+    Pairs.find({}).forEach(function(pair,i){
+      var allThePeople = People.find({pairee: pair._id}).fetch().map(function(d,i){
+        return d._id;
+      });
+      People.find({pairee: pair._id}).forEach(function(person,i){
+        allThePeopleMinusTheOnePerson = allThePeople.filter(function(d){
+          return d != person._id;
+        });
+        People.update({_id: person._id}, {$set: {paired: allThePeopleMinusTheOnePerson}});
+      });
+    });
+  },
+  pairedBefore: function (id1, id2) {
+    if (People.find({_id: id1, paired: {$in: [id2]}}).count() === 1) {
+      console.log("paired before");
+      pair_id = People.find({_id: id1}).fetch()[0].pairee;
+      console.log(pair_id);
+      Pairs.update({_id: pair_id}, {$set: {alreadyPaired: true}});
+    } else {
+      // do nothing
+    }
   }
 });

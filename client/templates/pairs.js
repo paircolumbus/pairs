@@ -39,6 +39,10 @@ Template.pairs.events({
     Meteor.call('clearPairs');
     return false;
   },
+  "click .save-it": function (event) {
+    Meteor.call('savePairs');
+    return false;
+  },
   "click .pair-it": function (event) {
     generatePairs();
     return false;
