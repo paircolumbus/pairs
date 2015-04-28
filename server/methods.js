@@ -1,3 +1,11 @@
+function generateSkills() {
+  var skills = [];
+  _.times(_.random(1, 5), function () {
+    skills.push(faker.company.bsNoun());
+  });
+  return skills;
+}
+
 Meteor.methods({
   clearPairs: function () {
     Pairs.remove({});
@@ -15,6 +23,14 @@ Meteor.methods({
   },
   insertPerson: function (doc) {
     People.insert(doc);
+  },
+  generatePerson: function () {
+    People.insert({
+      name: faker.name.findName(),
+      email: faker.internet.email(),
+      learning: generateSkills(),
+      teaching: generateSkills()
+    });
   },
   createPair: function (id1, id2) {
     // if id1 is already part of a pair,
