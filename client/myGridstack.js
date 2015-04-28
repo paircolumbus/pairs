@@ -5,6 +5,7 @@ Template.fullscreen.rendered = function () {
 
   // Instantiate grid
   var gridstackOptions = {};
+  var gridstackOptions = { float: true };
   $('.grid-stack').gridstack(gridstackOptions);
 
   // add onChange event listener
