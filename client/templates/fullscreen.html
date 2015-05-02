@@ -5,16 +5,51 @@
 <br>
 
   <div>
-  {{#each pairs}}
-    <div class="row">
-    {{#with this.pair.[0]}}
-      {{> zoom}}
-    {{/with}}
-    {{#with this.pair.[1]}}
-      {{> zoom}}
-    {{/with}}
-    </div>
-  {{/each}}
+      <div class="col-md-3">
+        {{#each pairset1}}
+          <div class="row panel">
+            {{#with this.pair.[0]}}
+              {{> zoom}}
+            {{/with}}
+            {{#with this.pair.[1]}}
+              {{> zoom}}
+            {{/with}}
+          </div>
+        {{/each}}
+      </div>
+      <div class="col-md-1">
+      </div>
+
+      <div class="col-md-3">
+        {{#each pairset2}}
+          <div class="row panel">
+            {{#with this.pair.[0]}}
+              {{> zoom}}
+            {{/with}}
+            {{#with this.pair.[1]}}
+              {{> zoom}}
+            {{/with}}
+          </div>
+        {{/each}}
+      </div>
+      <div class="col-md-1">
+      </div>
+
+      <div class="col-md-3">
+        {{#each pairset3}}
+          <div class="row panel">
+            {{#with this.pair.[0]}}
+              {{> zoom}}
+            {{/with}}
+            {{#with this.pair.[1]}}
+              {{> zoom}}
+            {{/with}}
+          </div>
+        {{/each}}
+      </div>
+      <div class="col-md-1">
+      </div>
+
   </div>
 
   <h2>Unpaired</h2>
