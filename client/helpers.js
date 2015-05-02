@@ -25,8 +25,6 @@ twothird = function(){
   return third() * 2;
 }
 
-
-
 Template.registerHelper( 'pairset1', function () {
   return Pairs.find({},{limit: third()});
 });

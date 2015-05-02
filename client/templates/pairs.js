@@ -38,7 +38,6 @@ Template.pairs.events({
     return false;
   },
   "click .full-it": function (event) {
-    Meteor.call('orderPairs');
     render('fullscreen');
     return false;
   }
