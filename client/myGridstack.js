@@ -1,4 +1,7 @@
-Template.fullscreen.rendered = function () {
+Template.gridscreen.rendered = function () {
+  // this belongs in a click event handler
+  // otherwise seem to be running into a stack overflow
+  console.log("calling gridscreen rendered");
 
   // order the pairs
   Meteor.call('orderPairs');
@@ -17,6 +20,7 @@ Template.fullscreen.rendered = function () {
     });
   });
 };
+
 
 Template.gridstackItem.rendered = function () {
  // For each widget that is created, we use add_widget to associate it with the grid
