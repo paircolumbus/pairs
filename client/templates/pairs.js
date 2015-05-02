@@ -54,5 +54,17 @@ Template.pairs.events({
 Template.pairs.rendered = function () {
   $(document).ready(function () {
     $.material.init();
+    $('#tounpaired').click(function(){
+      $('html, body').animate({
+        scrollTop: $("#unpaired").offset().top
+      }, 1000);
+      return false;
+    });
+    $('#unpaired').click(function(){
+      $('html, body').animate({
+        scrollTop: 0
+      }, 1000);
+      return false;
+    });
   });
 };
