@@ -1,15 +1,3 @@
-Template.pairs.helpers({
-  pairs: function () {
-    return Pairs.find({});
-  },
-  numberOfPairs: function () {
-    return Pairs.find({}).count();
-  },
-  numberOfUnpaired: function () {
-    return People.find({ pairee: null }).count();
-  }
-});
-
 pair = function(list){
   var shuffled = _.shuffle(list);
   var midpoint = Math.floor(shuffled.length / 2);
@@ -54,5 +42,17 @@ Template.pairs.events({
 Template.pairs.rendered = function () {
   $(document).ready(function () {
     $.material.init();
+    $('#tounpaired').click(function(){
+      $('html, body').animate({
+        scrollTop: $("#unpaired").offset().top
+      }, 1000);
+      return false;
+    });
+    $('#unpaired').click(function(){
+      $('html, body').animate({
+        scrollTop: 0
+      }, 1000);
+      return false;
+    });
   });
 };

@@ -1,9 +1,3 @@
-Template.person.helpers({
-  avatarFor: function (email) {
-    return Gravatar.imageUrl(email, { size: 32 });
-  }
-});
-
 Template.person.events({
   'change select': function(e,t){
     if (e.target.value == "new pair"){

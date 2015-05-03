@@ -12,9 +12,19 @@
     </div>
     <a class="btn btn-primary" href="/people" role="button">View people</a>
   </div>
+  <div>
+    <input type="submit" class="btn btn-primary remove-it" value="Clear pairs">
+    <a class="pull-right btn btn-primary full-it" href="/fullscreen">Screencast</a>
+    <a class="btn btn-xs" style="text-align: left;" id="tounpaired">
+    {{> counterButton}}
+    </a>
+  </div>
 
 
   {{#each pairs}}
+    <div class="row">
+      <input type="submit" class="btn btn-default btn-xs pull-right remove-one" value="-">
+    </div>
     <div class="row">
       {{#each this.pair}}
         <div class="col-md-6">{{>person}}</div>
@@ -25,8 +35,15 @@
   <h2>
     Unpaired
     <span class="badge">{{numberOfUnpaired}}</span>
+    <a class=" btn btn-xs" style="text-align: left;" id="unpaired">{{> counterButton}}</a>
   </h2>
   {{#each unpaired}}
     {{>person}}
   {{/each}}
+</template>
+
+<template name="counterButton">
+  {{numberOfPairs}} pairs
+  <br>
+  {{numberOfUnpaired}} unpaired
 </template>
