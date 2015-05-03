@@ -12,10 +12,6 @@ Template.person.events({
 Template.person.helpers({
   isPaired: function (id) {
     a = People.findOne(id).pairee;
-    if (a == null) {
-      return false;
-    } else {
-      return true;
-    }
+    return a != null;
   }
 });
