@@ -1,7 +1,4 @@
 Template.pairs.helpers({
-  pairs: function () {
-    return Pairs.find({});
-  },
   numberOfPairs: function () {
     return Pairs.find({}).count();
   },

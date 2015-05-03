@@ -12,9 +12,16 @@
     </div>
     <a class="btn btn-primary" href="/people" role="button">View people</a>
   </div>
+  <div>
+    <input type="submit" class="btn btn-primary remove-it" value="Clear pairs">
+    <a class="pull-right btn btn-primary full-it" href="/fullscreen">Fullscreen</a>
+  </div>
 
 
   {{#each pairs}}
+    <div class="row">
+      <input type="submit" class="btn btn-default btn-xs pull-right remove-one" value="-">
+    </div>
     <div class="row">
       {{#each this.pair}}
         <div class="col-md-6">{{>person}}</div>
