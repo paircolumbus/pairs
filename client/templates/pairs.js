@@ -20,9 +20,7 @@ pair = function(list){
 };
 
 generatePairs = function () {
-
   pairings = pair(People.find({$or: [{pairee: null}]}).fetch());
-
   pairings.first_half.forEach(function(e,i) {
 
     // set each person's pair
@@ -32,7 +30,6 @@ generatePairs = function () {
     Meteor.call('insertPair', {
       pair: [ id1, id2 ]
     });
-
   });
 };
 
