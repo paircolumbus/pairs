@@ -60,6 +60,15 @@ Meteor.methods({
     // remove the pair
     Pairs.remove(pair_id);
   },
+  deleteperson: function (person_id) {
+    // unpair if this person belonged to a pair
+    if (Meteor.call('isPaired', person_id)){
+      Meteor.call('unpair', {id: person_id});
+    }
+
+    // remove the person
+    People.remove(person_id);
+  },
   resetPairees: function () {
     People.update({}, {$set: {pairee: null}}, {multi: true});
   }
