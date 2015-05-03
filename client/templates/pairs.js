@@ -36,10 +36,6 @@ Template.pairs.events({
   "click .pair-it": function (event) {
     generatePairs();
     return false;
-  },
-  "click .full-it": function (event) {
-    render('fullscreen');
-    return false;
   }
 });
 
