@@ -4,10 +4,11 @@
 <br>
 <br>
 
-  <div>
-      <div class="col-md-3">
-        {{#each pairset1}}
-          <div class="row panel">
+  <div class="row">
+    {{#each pairs}}
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="row">
             {{#with this.pair.[0]}}
               {{> zoom}}
             {{/with}}
@@ -15,41 +16,9 @@
               {{> zoom}}
             {{/with}}
           </div>
-        {{/each}}
+        </div>
       </div>
-      <div class="col-md-1">
-      </div>
-
-      <div class="col-md-3">
-        {{#each pairset2}}
-          <div class="row panel">
-            {{#with this.pair.[0]}}
-              {{> zoom}}
-            {{/with}}
-            {{#with this.pair.[1]}}
-              {{> zoom}}
-            {{/with}}
-          </div>
-        {{/each}}
-      </div>
-      <div class="col-md-1">
-      </div>
-
-      <div class="col-md-3">
-        {{#each pairset3}}
-          <div class="row panel">
-            {{#with this.pair.[0]}}
-              {{> zoom}}
-            {{/with}}
-            {{#with this.pair.[1]}}
-              {{> zoom}}
-            {{/with}}
-          </div>
-        {{/each}}
-      </div>
-      <div class="col-md-1">
-      </div>
-
+    {{/each}}
   </div>
 
   <h2>Unpaired</h2>
@@ -57,4 +26,3 @@
     <div class="col-md-2">{{>zoom}}</div>
   {{/each}}
 </template>
-
