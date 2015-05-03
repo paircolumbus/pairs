@@ -1,3 +1,12 @@
+Template.pairs.helpers({
+  numberOfPairs: function () {
+    return Pairs.find({}).count();
+  },
+  numberOfUnpaired: function () {
+    return People.find({ pairee: null }).count();
+  }
+});
+
 pair = function(list){
   var shuffled = _.shuffle(list);
   var midpoint = Math.floor(shuffled.length / 2);
