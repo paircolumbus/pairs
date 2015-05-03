@@ -1,4 +1,5 @@
-Meteor.subscribe("pairs", "people");
+Meteor.subscribe("people");
+Meteor.subscribe("pairs");
 
 Template.registerHelper("equals", function (a, b) {
   return (a == b);
