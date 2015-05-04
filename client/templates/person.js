@@ -1,7 +1,3 @@
-Template.person.helpers({
-  page: function(){return Globals.page;}
-});
-
 Template.person.events({
   'change select': function(e,t){
     if (e.target.value == "new pair"){

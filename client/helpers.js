@@ -15,10 +15,6 @@ Template.registerHelper("isPeoplePage", function () {
   return (Globals.page == "people");
 });
 
-Template.registerHelper("clog", function (a) {
-  console.log(a);
-});
-
 Template.registerHelper('unpaired', function () {
   return People.find({ 'pairee': null });
 });
