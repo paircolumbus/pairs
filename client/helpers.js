@@ -10,10 +10,7 @@ Template.registerHelper('unpaired', function () {
 });
 
 Template.registerHelper('avatarFor', function (email) {
-  if (email == null){
-    email = 'meteor@meteor.com';
-  }
-  return Gravatar.imageUrl(email, { size: 32 });
+  return Gravatar.imageUrl(email || '', { size: 32 });
 });
 
 Template.registerHelper( 'pairs', function () {
