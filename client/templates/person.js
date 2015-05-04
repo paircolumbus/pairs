@@ -6,9 +6,12 @@ Template.person.events({
       Meteor.call('createPair', this._id, e.target.value);
     }
     return false;
-  },
-  "click .remove-one": function (event) {
-    Meteor.call('unpair', {id: this._id});
-    return false;
+  }
+});
+
+Template.person.helpers({
+  isPaired: function (id) {
+    a = People.findOne(id).pairee;
+    return a != null;
   }
 });
