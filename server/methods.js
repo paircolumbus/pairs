@@ -60,6 +60,14 @@ Meteor.methods({
     // remove the pair
     Pairs.remove(pair_id);
   },
+  removePair: function(pair_id){
+    // find the people in the pair
+    // and remove their pair_id links
+    People.update({pairee: pair_id}, {$set: {pairee: null}}, {multi: true});
+
+    // remove the pair
+    Pairs.remove(pair_id);
+  },
   deleteperson: function (person_id) {
     // unpair if this person belonged to a pair
     if (Meteor.call('isPaired', person_id)){
