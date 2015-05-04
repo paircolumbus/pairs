@@ -1,18 +1,16 @@
 Meteor.subscribe("people");
 Meteor.subscribe("pairs");
 
-Globals = {page: function(){return "pairs"}};
-
 Template.registerHelper("equals", function (a, b) {
   return (a == b);
 });
 
 Template.registerHelper("isPairsPage", function () {
-  return (Globals.page == "pairs");
+  return Router.current().route.getName() === undefined;
 });
 
 Template.registerHelper("isPeoplePage", function () {
-  return (Globals.page == "people");
+  return Router.current().route.getName() === "people";
 });
 
 Template.registerHelper('unpaired', function () {
