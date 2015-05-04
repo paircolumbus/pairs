@@ -21,16 +21,10 @@
   </div>
 
   {{#each pairs}}
-    <div class="row" style="{{#if alreadyPaired}}background-color: orange;{{/if}}" >
-      {{#each this.pair}}
-        <div class="col-md-6">{{>person}}</div>
-      {{/each}}
-      {{#if alreadyPaired}}
-      <p style="color: white; text-align: center"><b>Already Paired!</b></p>
-      {{/if}}
-    </div>
     {{#if alreadyPaired}}
-      <br>
+      {{>alreadyPairedPairCard}}
+    {{else}}
+      {{>notYetPairedPairCard}}
     {{/if}}
   {{/each}}
 
@@ -41,4 +35,23 @@
   {{#each unpaired}}
     {{>person}}
   {{/each}}
+</template>
+
+<template name="alreadyPairedPairCard">
+  <div class="row" style="background-color: orange;">
+    <br>
+    {{#each this.pair}}
+      <div class="col-md-6">{{>person}}</div>
+    {{/each}}
+    <p style="color: white; text-align: center"><b>Already Paired!</b></p>
+  </div>
+  <br>
+</template>
+
+<template name="notYetPairedPairCard">
+  <div class="row">
+    {{#each this.pair}}
+      <div class="col-md-6">{{>person}}</div>
+    {{/each}}
+  </div>
 </template>
