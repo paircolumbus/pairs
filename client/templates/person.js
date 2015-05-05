@@ -1,9 +1,3 @@
-Template.person.helpers({
-  avatarFor: function (email) {
-    return Gravatar.imageUrl(email, { size: 32 });
-  }
-});
-
 Template.person.events({
   'change select': function(e,t){
     if (e.target.value == "new pair"){
@@ -16,5 +10,16 @@ Template.person.events({
   "click .remove-one": function (event) {
     Meteor.call('unpair', {id: this._id});
     return false;
+  },
+  "click .delete-one": function (event) {
+    Meteor.call('deleteperson', this._id);
+    return false;
+  }
+});
+
+Template.person.helpers({
+  isPaired: function (id) {
+    a = People.findOne(id).pairee;
+    return a != null;
   }
 });

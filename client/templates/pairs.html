@@ -12,20 +12,31 @@
     </div>
     <a class="btn btn-primary" href="/people" role="button">View people</a>
   </div>
+
   <div>
     <a class="btn btn-xs" style="text-align: left;" id="tounpaired">
     {{> counterButton}}
     </a>
   </div>
 
+  <div class="row">
+    <a class="pull-right btn btn-primary full-it" href="/fullscreen">Fullscreen</a>
+  </div>
 
+  <div>
   {{#each pairs}}
     <div class="row">
       {{#each this.pair}}
-        <div class="col-md-6">{{>person}}</div>
+        <div class="col-md-5">{{>person}}</div>
       {{/each}}
+      <div class="col-md-2">
+        <br>
+        <br>
+        <input type="submit" class="btn control-group btn-primary btn-xs pull-left remove-one" value="-">
+      </div>
     </div>
   {{/each}}
+  </div>
 
   <h2>
     Unpaired

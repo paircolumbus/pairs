@@ -1,7 +1,4 @@
 Template.pairs.helpers({
-  pairs: function () {
-    return Pairs.find({});
-  },
   numberOfPairs: function () {
     return Pairs.find({}).count();
   },
@@ -23,9 +20,7 @@ pair = function(list){
 };
 
 generatePairs = function () {
-
   pairings = pair(People.find({$or: [{pairee: null}]}).fetch());
-
   pairings.first_half.forEach(function(e,i) {
 
     // set each person's pair
@@ -35,7 +30,6 @@ generatePairs = function () {
     Meteor.call('insertPair', {
       pair: [ id1, id2 ]
     });
-
   });
 };
 
@@ -47,6 +41,10 @@ Template.pairs.events({
   },
   "click .pair-it": function (event) {
     generatePairs();
+    return false;
+  },
+  "click .remove-one": function (event) {
+    Meteor.call('removePair', this._id);
     return false;
   }
 });
