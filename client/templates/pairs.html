@@ -2,6 +2,8 @@
   <h2>
     Pairs
     <span class="badge">{{numberOfPairs}}</span>
+    / Unpaired
+    <span class="badge" id="paired">{{numberOfUnpaired}}</span>
   </h2>
   <div class="btn-group btn-group-justified" role="group">
     <div class="btn-group" role="group">
@@ -11,12 +13,6 @@
       <button type="button" class="btn btn-primary remove-it">Clear pairs</button>
     </div>
     <a class="btn btn-primary" href="/people" role="button">View people</a>
-  </div>
-
-  <div>
-    <a class="btn btn-xs" style="text-align: left;" id="tounpaired">
-    {{> counterButton}}
-    </a>
   </div>
 
   <div class="row">
@@ -41,15 +37,12 @@
   <h2>
     Unpaired
     <span class="badge">{{numberOfUnpaired}}</span>
-    <a class=" btn btn-xs" style="text-align: left;" id="unpaired">{{> counterButton}}</a>
+    / Paired
+    <span class="badge" id="unpaired">{{numberOfPairs}}</span>
   </h2>
+
   {{#each unpaired}}
     {{>person}}
   {{/each}}
 </template>
 
-<template name="counterButton">
-  {{numberOfPairs}} pairs
-  <br>
-  {{numberOfUnpaired}} unpaired
-</template>
