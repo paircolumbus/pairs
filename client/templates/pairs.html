@@ -12,20 +12,13 @@
     </div>
     <a class="btn btn-primary" href="/people" role="button">View people</a>
   </div>
-  <div>
+  <div class="row">
+    <button type="button" class="btn btn-primary save-it">Save pairs</button>
     <a class="pull-right btn btn-primary full-it" href="/fullscreen">Fullscreen</a>
   </div>
 
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-primary save-it">Save pairs</button>
-  </div>
-
   {{#each pairs}}
-    {{#if alreadyPaired}}
-      {{>alreadyPairedPairCard}}
-    {{else}}
-      {{>notYetPairedPairCard}}
-    {{/if}}
+    {{>pairCard}}
   {{/each}}
 
   <h2>
@@ -37,21 +30,24 @@
   {{/each}}
 </template>
 
-<template name="alreadyPairedPairCard">
-  <div class="row" style="background-color: orange;">
-    <br>
-    {{#each this.pair}}
-      <div class="col-md-6">{{>person}}</div>
-    {{/each}}
-    <p style="color: white; text-align: center"><b>Already Paired!</b></p>
-  </div>
-  <br>
-</template>
-
-<template name="notYetPairedPairCard">
+<template name="pairCard">
   <div class="row">
     {{#each this.pair}}
-      <div class="col-md-6">{{>person}}</div>
+    <div class="col-md-5" style="{{#if ../alreadyPaired}} background-color: orange; {{/if}}">{{>person}}</div>
     {{/each}}
+    {{>removePairButton}}
+  </div>
+</template>
+
+<template name="removePairButton">
+  <div class="col-md-2">
+    <br>
+    <br>
+    <input type="submit" class="btn control-group btn-primary btn-xs pull-left remove-one" value="-">
+    {{#if alreadyPaired}}
+      <br>
+      <br>
+      <p style="background-color: orange; color: white; text-align: center"><b>Already Paired!</b></p>
+    {{/if}}
   </div>
 </template>

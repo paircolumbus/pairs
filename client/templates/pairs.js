@@ -46,6 +46,10 @@ Template.pairs.events({
   "click .pair-it": function (event) {
     generatePairs();
     return false;
+  },
+  "click .remove-one": function (event) {
+    Meteor.call('removePair', this._id);
+    return false;
   }
 });
 
