@@ -11,6 +11,10 @@ function generateSkills() {
 }
 
 Meteor.methods({
+  // for tests only
+  clearPeople: function () {
+    People.remove({});
+  },
   clearPairs: function () {
     Pairs.remove({});
   },
