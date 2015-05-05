@@ -5,6 +5,14 @@ Template.registerHelper("equals", function (a, b) {
   return (a == b);
 });
 
+Template.registerHelper("isPairsPage", function () {
+  return Router.current().route.getName() === undefined;
+});
+
+Template.registerHelper("isPeoplePage", function () {
+  return Router.current().route.getName() === "people";
+});
+
 Template.registerHelper('unpaired', function () {
   return People.find({ 'pairee': null });
 });
