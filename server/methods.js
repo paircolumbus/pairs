@@ -82,6 +82,9 @@ Meteor.methods({
     People.update({}, {$set: {pairee: null}}, {multi: true});
   },
   savePairs: function () {
+    // null the unpaired
+    People.update({pairee: null}, {$set: {paired: null}}, {multi: true});
+
     Pairs.find({}).forEach(function(pair,i){
       var allThePeople = People.find({pairee: pair._id}).fetch().map(function(d,i){
         return d._id;
