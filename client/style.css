@@ -1,3 +1,14 @@
 .logo {
   height: 1.5em;
 }
+
+.already-paired {
+  background-color: orange;
+}
+
+.already-paired-notice {
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
