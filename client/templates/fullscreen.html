@@ -11,19 +11,3 @@
     <div class="col-md-2">{{>zoom}}</div>
   {{/each}}
 </template>
-
-<template name="paircards">
-  <div class="row">
-    {{#each pairs}}
-      <div class="col-md-4">
-        <div class="panel">
-          <div class="row">
-            {{#each this.pair}}
-              {{>zoom}}
-            {{/each}}
-          </div>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-</template>
