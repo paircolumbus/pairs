@@ -1,0 +1,12 @@
+<template name="removePairButton">
+  <div class="col-md-2">
+    <br>
+    <br>
+    <input type="submit" class="btn control-group btn-primary btn-xs pull-left remove-one" value="-">
+    {{#if alreadyPaired}}
+      <br>
+      <br>
+      <p style="background-color: orange; color: white; text-align: center"><b>Already Paired!</b></p>
+    {{/if}}
+  </div>
+</template>

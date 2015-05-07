@@ -1,0 +1,8 @@
+<template name="pairCard">
+  <div class="row">
+    {{#each this.pair}}
+    <div class="col-md-5" style="{{#if ../alreadyPaired}} background-color: orange; {{/if}}">{{>person}}</div>
+    {{/each}}
+    {{>removePairButton}}
+  </div>
+</template>
