@@ -24,3 +24,11 @@ Template.registerHelper('avatarFor', function (email) {
 Template.registerHelper( 'pairs', function () {
   return Pairs.find({});
 });
+
+Template.registerHelper( 'numberOfPairs', function () {
+    return Pairs.find({}).count();
+});
+
+Template.registerHelper( 'numberOfUnpaired', function () {
+    return People.find({ pairee: null }).count();
+});
