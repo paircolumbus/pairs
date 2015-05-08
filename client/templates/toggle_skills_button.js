@@ -1,8 +1,8 @@
 toggleSkills = function () {
   if (Session.get('showSkills')) {
-    Session.set('showSkills', false);
+    Session.setPersistent('showSkills', false);
   } else {
-    Session.set('showSkills', true);
+    Session.setPersistent('showSkills', true);
   }
 }
 
