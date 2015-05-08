@@ -1,6 +1,9 @@
 Template.people.helpers({
   people: function () {
     return People.find({});
+  },
+  numberOfPeople: function () {
+    return People.find({}).count();
   }
 });
 
