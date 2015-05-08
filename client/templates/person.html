@@ -8,7 +8,9 @@
           <select class="form-control">
             <option value="new pair">new pair</option>
             {{#each unpaired}}
-              <option value={{this._id}}>{{this.name}}</option>
+              {{#if notequals this._id ../_id}}
+                <option value={{this._id}}>{{this.name}}</option>
+              {{/if}}
             {{/each}}
           </select>
         {{/if}}

@@ -5,6 +5,10 @@ Template.registerHelper("equals", function (a, b) {
   return (a == b);
 });
 
+Template.registerHelper("notequals", function (a, b) {
+  return (a != b);
+});
+
 Template.registerHelper("isPairsPage", function () {
   return Router.current().route.getName() === undefined;
 });
