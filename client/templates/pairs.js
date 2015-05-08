@@ -1,4 +1,11 @@
 Template.pairs.helpers({
+  toggleSkills: function () {
+    if Session.get("showSkills") {
+      Session.set("showSkills", false);
+    } else {
+      Session.set("showSkills", true);
+    }
+  },
   numberOfPairs: function () {
     return Pairs.find({}).count();
   },
@@ -49,6 +56,16 @@ Template.pairs.events({
   },
   "click .remove-one": function (event) {
     Meteor.call('removePair', this._id);
+    return false;
+  },
+  "click .toggle-skills": function (event) {
+    /*
+    if Session.get('showSkills') {
+      Session.set('showSkills', false);
+    } else {
+      Session.set('showSkills', true);
+    }
+    */
     return false;
   }
 });
