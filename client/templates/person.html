@@ -20,23 +20,27 @@
       </form>
     </div>
 
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Learning</th>
-          <th>Teaching</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{#each learning}}
-            <span class="label label-default">{{this}}</span>
-          {{/each}}</td>
-          <td>{{#each teaching}}
-            <span class="label label-default">{{this}}</span>
-          {{/each}}</td>
-        </tr>
-      </tbody>
-    </table>
+    {{#if showSkills}}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Learning</th>
+            <th>Teaching</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{#each learning}}
+              <span class="label label-default">{{this}}</span>
+            {{/each}}</td>
+            <td>{{#each teaching}}
+              <span class="label label-default">{{this}}</span>
+            {{/each}}</td>
+          </tr>
+        </tbody>
+      </table>
+    {{/if}}
+
+
   </div>
 </template>
