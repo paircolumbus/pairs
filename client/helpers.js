@@ -29,14 +29,6 @@ Template.registerHelper( 'pairs', function () {
   return Pairs.find({});
 });
 
-toggleSkills = function () {
-  if (Session.get('showSkills')) {
-    Session.set('showSkills', false);
-  } else {
-    Session.set('showSkills', true);
-  }
-}
-
 Template.registerHelper( 'toggleSkills', function () {
   toggleSkills();
 });
@@ -45,9 +37,3 @@ Template.registerHelper( 'showSkills', function () {
   return Session.get('showSkills');
 });
 
-Template.body.events({
-  "click .toggle-skills": function (event) {
-    toggleSkills();
-    return false;
-  }
-});
