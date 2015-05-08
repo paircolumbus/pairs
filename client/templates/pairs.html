@@ -26,7 +26,12 @@
     Unpaired
     <span class="badge">{{numberOfUnpaired}}</span>
   </h2>
-  {{#each unpaired}}
-    {{>person}}
-  {{/each}}
+
+  <div class="row">
+    {{#each unpaired}}
+      <div class="col-md-4">
+        {{>person}}
+      </div>
+    {{/each}}
+  </div>
 </template>
