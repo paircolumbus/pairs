@@ -1,12 +1,6 @@
 MochaWeb.testOnly(function () {
-  function cleanup () {
+  beforeEach(function () {
     Meteor.call('clearPairs');
     Meteor.call('clearPeople');
-  }
-  beforeEach(function(){
-    cleanup();
-  });
-  afterEach(function(){
-    //cleanup();
   });
 });
