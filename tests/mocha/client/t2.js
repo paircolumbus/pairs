@@ -76,7 +76,7 @@ MochaWeb.testOnly(function () {
     });
   });
 
-  describe("a person", function () {
+  describe("person", function () {
     describe("pairing with another person", function () {
       it("creates a pair with both people");
 
