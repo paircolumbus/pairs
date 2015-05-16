@@ -18,9 +18,13 @@
     <a class="pull-right btn btn-primary full-it" href="/fullscreen">Fullscreen</a>
   </div>
 
+  {{>agenda}}
+
   {{#each pairs}}
     {{>pairCard}}
   {{/each}}
+
+  {{>wrapup}}
 
   <h2>
     Unpaired
