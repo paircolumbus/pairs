@@ -28,3 +28,12 @@ Template.registerHelper('avatarFor', function (email) {
 Template.registerHelper( 'pairs', function () {
   return Pairs.find({});
 });
+
+Template.registerHelper( 'toggleSkills', function () {
+  toggleSkills();
+});
+
+Template.registerHelper( 'showSkills', function () {
+  return Session.get('showSkills');
+});
+
