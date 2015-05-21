@@ -15,7 +15,14 @@
           </select>
         {{/if}}
         {{#if isPeoplePage}}
+          <button type="button" class="btn btn-primary btn-xs join-one">j</button>
+          <button type="button" class="btn btn-primary btn-xs unjoin-one">u</button>
           <button type="button" class="btn btn-primary btn-xs delete-one">x</button>
+          {{#if joined}}
+          JOINED
+          {{else}}
+          UNJOINED
+          {{/if}}
         {{/if}}
       </form>
     </div>

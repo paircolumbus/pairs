@@ -78,6 +78,17 @@ Meteor.methods({
     // remove the person
     People.remove(person_id);
   },
+  joinperson: function (person_id) {
+    People.update({_id: person_id}, {$set: {joined: true}});
+  },
+  unjoinperson: function (person_id) {
+    // unpair if this person belonged to a pair
+    if (Meteor.call('isPaired', person_id)){
+      Meteor.call('unpair', {id: person_id});
+    }
+
+    People.update({_id: person_id}, {$set: {joined: false}});
+  },
   resetPairees: function () {
     People.update({}, {$set: {pairee: null}}, {multi: true});
   },
