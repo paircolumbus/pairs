@@ -92,6 +92,12 @@ Meteor.methods({
   resetPairees: function () {
     People.update({}, {$set: {pairee: null}}, {multi: true});
   },
+  allHere: function () {
+    People.update({}, {$set: {joined: true}}, {multi: true});
+  },
+  allAway: function () {
+    People.update({}, {$set: {joined: false}}, {multi: true});
+  },
   savePairs: function () {
     // null the unpaired
     People.update({pairee: null}, {$set: {paired: null}}, {multi: true});

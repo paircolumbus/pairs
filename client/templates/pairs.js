@@ -20,7 +20,7 @@ pair = function(list){
 };
 
 generatePairs = function () {
-  pairings = pair(People.find({ pairee: null, join: true }).fetch());
+  pairings = pair(People.find({ pairee: null, joined: true }).fetch());
   pairings.first_half.forEach(function(e,i) {
 
     // set each person's pair
