@@ -3,7 +3,7 @@ Template.pairs.helpers({
     return Pairs.find({}).count();
   },
   numberOfUnpaired: function () {
-    return People.find({ pairee: null }).count();
+    return People.find({ pairee: null, join: true }).count();
   }
 });
 
@@ -20,7 +20,7 @@ pair = function(list){
 };
 
 generatePairs = function () {
-  pairings = pair(People.find({$or: [{pairee: null}]}).fetch());
+  pairings = pair(People.find({ pairee: null, joined: true }).fetch());
   pairings.first_half.forEach(function(e,i) {
 
     // set each person's pair

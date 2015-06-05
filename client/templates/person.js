@@ -14,12 +14,13 @@ Template.person.events({
   "click .delete-one": function (event) {
     Meteor.call('deleteperson', this._id);
     return false;
-  }
-});
-
-Template.person.helpers({
-  isPaired: function (id) {
-    a = People.findOne(id).pairee;
-    return a != null;
-  }
+  },
+  "click .join-one": function (event) {
+    Meteor.call('joinperson', this._id);
+    return false;
+  },
+  "click .unjoin-one": function (event) {
+    Meteor.call('unjoinperson', this._id);
+    return false;
+  },
 });

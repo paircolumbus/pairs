@@ -18,7 +18,7 @@ Template.registerHelper("isPeoplePage", function () {
 });
 
 Template.registerHelper('unpaired', function () {
-  return People.find({ 'pairee': null });
+  return People.find({'pairee': null, joined: true });
 });
 
 Template.registerHelper('avatarFor', function (email) {
