@@ -10,17 +10,47 @@ function generateSkills() {
   return skills;
 }
 
+function pair(list) {
+  var shuffled = _.shuffle(list);
+  var midpoint = Math.floor(shuffled.length / 2);
+  var first_half = shuffled.slice(0,midpoint);
+  var second_half = shuffled.slice(midpoint, shuffled.length);
+
+  return {
+    first_half: first_half,
+    second_half: second_half
+  };
+}
+
 Meteor.methods({
   // for tests only
   clearPeople: function () {
     People.remove({});
+    return true;
   },
   clearPairs: function () {
     Pairs.remove({});
+    return true;
+  },
+  generatePairs: function () {
+    pairings = pair(People.find({ pairee: null, joined: true }).fetch());
+    pairings.first_half.forEach(function(e,i) {
+
+      // set each person's pair
+      id1 = pairings.first_half[i]._id;
+      id2 = pairings.second_half[i]._id;
+
+      console.log('about to insert pair');
+      Meteor.call('insertPair', {
+        pair: [ id1, id2 ]
+      });
+    });
   },
   insertPair: function (doc) {
+    console.log('inserting pair');
     id1 = doc.pair[0];
     id2 = doc.pair[1];
+    console.log([id1,id2]);
 
     pair_id = Pairs.insert(doc);
 
