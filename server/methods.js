@@ -23,14 +23,19 @@ Meteor.methods({
     Meteor.call('pairedBefore', id1, id2);
   },
   insertPerson: function (doc) {
-    People.insert(doc);
+    person = People.insert(doc);
+
+    // added people should always start out unpaired and assumed present
+    People.update({_id: person}, {$set: {pairee: null, joined: true}});
   },
   generatePerson: function () {
     People.insert({
       name: faker.name.findName(),
       email: faker.internet.email(),
       learning: generateSkills(),
-      teaching: generateSkills()
+      teaching: generateSkills(),
+      pairee: null,
+      joined: true
     });
   },
   createPair: function (id1, id2) {
