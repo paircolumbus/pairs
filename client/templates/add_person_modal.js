@@ -11,8 +11,7 @@ Template.addPersonModal.events({
       name: name,
       email: email,
       learning: learning,
-      teaching: teaching,
-      pairee: null
+      teaching: teaching
     });
 
     event.target.name.value = "";
