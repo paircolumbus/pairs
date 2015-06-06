@@ -40,17 +40,14 @@ Meteor.methods({
       id1 = pairings.first_half[i]._id;
       id2 = pairings.second_half[i]._id;
 
-      console.log('about to insert pair');
       Meteor.call('insertPair', {
         pair: [ id1, id2 ]
       });
     });
   },
   insertPair: function (doc) {
-    console.log('inserting pair');
     id1 = doc.pair[0];
     id2 = doc.pair[1];
-    console.log([id1,id2]);
 
     pair_id = Pairs.insert(doc);
 
@@ -166,9 +163,7 @@ Meteor.methods({
   },
   pairedBefore: function (id1, id2) {
     if (People.find({_id: id1, paired: {$in: [id2]}}).count() === 1) {
-      console.log("paired before");
       pair_id = People.find({_id: id1}).fetch()[0].pairee;
-      console.log(pair_id);
       Pairs.update({_id: pair_id}, {$set: {alreadyPaired: true}});
     } else {
       // do nothing

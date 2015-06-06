@@ -10,10 +10,8 @@ MochaWeb.testOnly(function () {
 
         Meteor.call('generatePairs');
 
-
         chai.assert.equal(5, People.find({}).count());
         chai.assert.equal(2, Pairs.find({}).count());
-
       });
     });
 
