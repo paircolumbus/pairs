@@ -3,7 +3,7 @@ Template.pairs.helpers({
     return Pairs.find({}).count();
   },
   numberOfUnpaired: function () {
-    return People.find({ pairee: null, join: true }).count();
+    return People.find({ pairee: null, joined: true }).count();
   }
 });
 
