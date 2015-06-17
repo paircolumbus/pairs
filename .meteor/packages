@@ -12,5 +12,6 @@ jparker:gravatar
 digilord:faker
 underscore
 u2622:persistent-session
-accounts-ui
 accounts-password
+ian:accounts-ui-bootstrap-3
+twbs:bootstrap
