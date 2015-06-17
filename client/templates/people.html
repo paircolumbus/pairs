@@ -3,11 +3,6 @@
     People
     <span class="badge">{{numberOfPeople}}</span>
   </h2>
-  <p>{{> loginButtons}}</p><br/>
-  {{#if currentUser}}
-  <p>{{currentUser.username}}</p><br/>
-  <p>You are logged in, bro</p>
-  {{/if}}
   <div class="btn-group btn-group-justified" role="group">
     <div class="btn-group" role="group">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPersonModal">

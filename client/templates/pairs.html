@@ -10,13 +10,14 @@
     <div class="btn-group" role="group">
       <button type="button" class="btn btn-primary remove-it">Clear pairs</button>
     </div>
-    <a class="btn btn-primary" href="/people" role="button">View people</a>
+    {{#if currentUser}}
+      <a class="btn btn-primary" href="/people" role="button">View people</a>
+    {{/if}}
   </div>
   <div class="row">
     <button type="button" class="btn btn-primary save-it">Save pairs</button>
     {{>toggleSkillsButton}}
     <a class="pull-right btn btn-primary full-it" href="/fullscreen">Fullscreen</a>
-    {{>loginButtons}}
   </div>
 
   {{#each pairs}}
