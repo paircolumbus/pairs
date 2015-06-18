@@ -4,10 +4,10 @@ Router.route('/', 'pairs');
 Router.map(function () {
   this.route('people', {
     onBeforeAction: function (pause) {
-      if (!Meteor.user()) {
-        this.render('pairs');
-      } else {
+      if (Meteor.user()) {
         this.next();
+      } else {
+        this.render('pairs');
       }
     }
   });
