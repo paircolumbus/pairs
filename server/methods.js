@@ -32,6 +32,13 @@ Meteor.methods({
     // added people should always start out unpaired and assumed present
     People.update({_id: person}, {$set: {pairee: null, joined: true}});
   },
+  searchPerson: function (doc) {
+    console.log(doc);
+    person = People.find(doc).fetch();
+    console.log(person);
+    console.log("doc is " + doc);
+    return person;
+  },
   generatePerson: function () {
     People.insert({
       name: faker.name.findName(),
