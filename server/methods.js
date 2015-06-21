@@ -106,6 +106,7 @@ Meteor.methods({
   },
   allAway: function () {
     People.update({}, {$set: {joined: false}}, {multi: true});
+    Meteor.call('clearPairs');
   },
   savePairs: function () {
     // null the unpaired
