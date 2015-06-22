@@ -6,21 +6,13 @@ Template.searchPersonModal.helpers({
 });
 
 Template.searchPersonModal.events({
-  "click .search-person": function (event) {
-    //var name = event.target.name.value;
-    //event.target.name.value = "";
-
-    Session.set('searchTerm', 'Vasanth');
-
-    console.log("event: ");
-    console.log(event.target.parent);
-
-    console.log("parent data: ");
-    console.log(Template.parentData(0));
-    console.log(Template.parentData(1));
-
-
-
+  "change .search-text": function (event) {
+    var name = event.target.value;
+    Session.set('searchTerm', name);
+    console.log(name);
+    return false;
+  },
+  "click .done-person": function (event) {
     return false;
   }
 });

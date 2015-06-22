@@ -3,27 +3,25 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="search-results">
-          <p class="search-term">results for: {{searchTerm}}</p>
-          {{#each searchResults searchTerm}}
+          {{#each searchResults}}
             {{>searchedPerson}}
           {{/each}}
         </div>
 
         <form class="form-horizontal">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <div class="modal-title" id="searchPersonModalLabel">People Search</div>
           </div>
           <div class="modal-body">
             <div class="form-group">
               <label class="col-sm-2">Name</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" name="name">
+                <input class="form-control search-text" type="text" name="name">
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button class="search-person btn btn-default">Search</button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Done</span></button>
           </div>
         </form>
 
