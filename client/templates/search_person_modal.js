@@ -1,21 +1,26 @@
+Template.searchPersonModal.helpers({
+  searchResults: function () {
+    searchTerm = Session.get('searchTerm');
+    return People.find({name: searchTerm});
+  }
+});
+
 Template.searchPersonModal.events({
   "click .search-person": function (event) {
-    console.log("why no more logging?");
-    var commaSeparator = /\s*,\s*/;
-
-    console.log(event);
-    var name = event.target.name.value;
-
-    console.log(name);
-
-    var person = Meteor.call('searchPerson', {
-      name: name,
-    });
-
+    //var name = event.target.name.value;
     //event.target.name.value = "";
-    //event.target.email.value = "";
 
-    console.log(person);
+    Session.set('searchTerm', 'Vasanth');
+
+    console.log("event: ");
+    console.log(event.target.parent);
+
+    console.log("parent data: ");
+    console.log(Template.parentData(0));
+    console.log(Template.parentData(1));
+
+
+
     return false;
   }
 });
@@ -23,5 +28,8 @@ Template.searchPersonModal.events({
 Template.searchPersonModal.rendered = function () {
   $(document).ready(function () {
     $.material.init();
+    svar = Session.get('searchTerm');
+    console.log(svar);
+    this.searchTerm = svar;
   });
 };

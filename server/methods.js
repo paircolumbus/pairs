@@ -36,7 +36,6 @@ Meteor.methods({
     console.log(doc);
     person = People.find(doc).fetch();
     console.log(person);
-    console.log("doc is " + doc);
     return person;
   },
   generatePerson: function () {

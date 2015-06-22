@@ -3,12 +3,13 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="search-results">
-          {{#each searchResults}}
-            <p>found some results</p>
+          <p class="search-term">results for: {{searchTerm}}</p>
+          {{#each searchResults searchTerm}}
+            {{>searchedPerson}}
           {{/each}}
         </div>
 
-        <form class="form-horizontal search-person">
+        <form class="form-horizontal">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <div class="modal-title" id="searchPersonModalLabel">People Search</div>
@@ -22,7 +23,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-default">Search</button>
+            <button class="search-person btn btn-default">Search</button>
           </div>
         </form>
 
