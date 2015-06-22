@@ -1,2 +1,2 @@
 Session.setDefault('showSkills', true);
-Session.setDefault('searchTerm', '...');
+Session.setDefault('searchTerm', 'zzz');
