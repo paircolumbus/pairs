@@ -1,7 +1,8 @@
 Template.searchPersonModal.helpers({
   searchResults: function () {
     searchTerm = Session.get('searchTerm');
-    return People.find({name: searchTerm});
+    regex = '^' + searchTerm;
+    return People.find({name: {$regex: regex}});
   }
 });
 
