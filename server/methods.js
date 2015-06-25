@@ -32,6 +32,12 @@ Meteor.methods({
     // added people should always start out unpaired and assumed present
     People.update({_id: person}, {$set: {pairee: null, joined: true}});
   },
+  searchPerson: function (doc) {
+    console.log(doc);
+    person = People.find(doc).fetch();
+    console.log(person);
+    return person;
+  },
   generatePerson: function () {
     People.insert({
       name: faker.name.findName(),
@@ -106,6 +112,7 @@ Meteor.methods({
   },
   allAway: function () {
     People.update({}, {$set: {joined: false}}, {multi: true});
+    Meteor.call('clearPairs');
   },
   savePairs: function () {
     // null the unpaired
