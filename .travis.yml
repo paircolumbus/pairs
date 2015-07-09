@@ -1,0 +1,7 @@
+sudo: required
+install: curl https://install.meteor.com/ | sh
+script: meteor --test --release velocity:METEOR@1.1.0.2_2
+cache:
+  directories:
+  - ~/.meteor
+  - .meteor/local
