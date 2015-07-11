@@ -1,13 +1,13 @@
 <template name="fullscreen">
-  <a type="submit" class="pull-right btn btn-primary manage-it" href="/">Manage</a>
   <br>
-  <br>
-  <br>
-
   {{>paircards}}
 
-  <h2>Unpaired</h2>
+  <br>
+  <br>
   {{#each unpaired}}
     <div class="col-md-2">{{>zoom}}</div>
   {{/each}}
+  <br>
+  <br>
+  {{>returnFromFullscreenButton}}
 </template>
