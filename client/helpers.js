@@ -17,6 +17,10 @@ Template.registerHelper("isPeoplePage", function () {
   return Router.current().route.getName() === "people";
 });
 
+Template.registerHelper("isFullscreenPage", function () {
+  return Router.current().route.getName() === "fullscreen";
+});
+
 Template.registerHelper('unpaired', function () {
   return People.find({'pairee': null, joined: true });
 });

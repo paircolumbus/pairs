@@ -2,9 +2,12 @@
   <div class="container">
     <div class="page-header">
       <h1><img class="logo" src="http://paircolumbus.org/images/logo-transparent.png"> Pairs <small>Find other people to pair with based on shared interests and skills.</small></h1>
-    <div class="pull-right">
-      {{> loginButtons}}
-    </div>
+      {{#if isFullscreenPage}}
+      {{else}}
+        <div class="pull-right">
+          {{>loginButtons}}
+        </div>
+      {{/if}}
     </div>
 
     {{>yield}}
