@@ -3,6 +3,9 @@
     {{#each this.pair}}
     <div class="col-md-5 {{#if ../alreadyPaired}} already-paired {{/if}}">{{>person}}</div>
     {{/each}}
-    {{>removePairButton}}
+    {{#if currentUser}}
+      {{>removePairButton}}
+    {{else}}
+    {{/if}}
   </div>
 </template>
