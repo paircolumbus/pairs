@@ -5,14 +5,17 @@
       <b>{{name}}</b>
       <form class="form-inline pull-right">
         {{#if isPairsPage}}
-          <select class="form-control">
-            <option value="new pair">new pair</option>
-            {{#each unpaired}}
-              {{#if notequals this._id ../_id}}
-                <option value={{this._id}}>{{this.name}}</option>
-              {{/if}}
-            {{/each}}
-          </select>
+          {{#if currentUser}}
+            <select class="form-control">
+              <option value="new pair">new pair</option>
+              {{#each unpaired}}
+                {{#if notequals this._id ../_id}}
+                  <option value={{this._id}}>{{this.name}}</option>
+                {{/if}}
+              {{/each}}
+            </select>
+          {{else}}
+          {{/if}}
         {{/if}}
         {{#if isPeoplePage}}
           {{#if joined}}
