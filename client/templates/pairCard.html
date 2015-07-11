@@ -1,7 +1,7 @@
 <template name="pairCard">
   <div class="row">
     {{#each this.pair}}
-    <div class="col-md-5 {{#if ../alreadyPaired}} already-paired {{/if}}">{{>person}}</div>
+    <div class="{{#if currentUser}} col-md-5 {{else}} col-md-6 {{/if}}{{#if ../alreadyPaired}} already-paired {{/if}}">{{>person}}</div>
     {{/each}}
     {{#if currentUser}}
       {{>removePairButton}}
