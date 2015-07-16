@@ -16,7 +16,3 @@
 #login-dropdown-list {
   list-style: none;
 }
-
-#login-dropdown-list .dropdown-menu {
-  float: left;
-}
