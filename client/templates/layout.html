@@ -1,13 +1,9 @@
 <template name="layout">
+  {{>navbar}}
   <div class="container">
     <div class="page-header">
-      {{>navbar}}
-      {{#if isFullscreenPage}}
-      {{else}}
-      {{/if}}
+      {{>yield}}
     </div>
-
-    {{>yield}}
   </div>
 
   {{>addPersonModal}}
