@@ -13,6 +13,6 @@
   text-align: center;
 }
 
-#login-dropdown-list {
-  list-style: none;
+h2 > .badge {
+  vertical-align: middle;
 }
