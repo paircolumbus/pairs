@@ -24,3 +24,8 @@ h2 > .badge {
 .pair-columbus-logo {
   background-color: white;
 }
+
+.navbar-right {
+  font-size: 24px;
+  padding-top: 7px;
+}
