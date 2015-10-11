@@ -5,9 +5,13 @@
       <b>{{name}}</b>
       <form class="form-inline pull-right">
         {{#if joined}}
-          <button type="button" class="btn btn-primary btn-xs unjoin-one">here</button>
+        <label>Currently here
+        <button type="button" class="btn btn-primary btn-xs unjoin-one">mark away</button>
+        </label>
         {{else}}
-          <button type="button" class="btn btn-primary btn-xs join-one">away</button>
+        <label>Currently away
+        <button type="button" class="btn btn-primary btn-xs join-one">mark here</button>
+        </label>
         {{/if}}
       </form>
     </div>
