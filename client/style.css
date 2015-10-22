@@ -29,3 +29,7 @@ h2 > .badge {
   font-size: 24px;
   padding-top: 7px;
 }
+
+.col-md-4:nth-child(3n+1) {
+  clear: left;
+}
