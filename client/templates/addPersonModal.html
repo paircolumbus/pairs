@@ -40,14 +40,26 @@
             <button class="btn btn-default">Add</button>
           </div>
         </form>  -->
-      {{#autoForm collection="People" id="insertPersonForm" type="insert"}}
-    <div role="form">
-      <legend>Add Yourself</legend>
-      <legend>Name: </legend> {{> afQuickField name='name'}}
-      <legend>Email: </legend> {{> afQuickField name='email'}}
-      <legend>Learning: </legend> {{> afQuickField name='learning'}}
-      <legend>Teaching: </legend> {{> afQuickField name='teaching'}}
-    </div>
+    {{#autoForm collection="People" id="insertPersonForm" type="insert"}}
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-title" id="addPersonModalLabel">Add person</div>
+          </div>
+    <fieldset class="modal-body">
+      <div class="form-group">
+      <label>Name: </label>
+      {{> afQuickField name='name'}}
+      </div>
+      <div class="form-group">
+      <label>Email: </label> {{> afQuickField name='email'}}
+      </div>
+      <div class="form-group">
+      <label>Learning: </label> {{> afQuickField name='learning'}}
+      </div>
+      <div class="form-group">
+      <label>Teaching: </label> {{> afQuickField name='teaching'}}
+      </div>
+    </fieldset>
     <div class="modal-footer">
     <button class="btn btn-primary">Add</button>
     </div>
