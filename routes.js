@@ -14,3 +14,5 @@ Router.map(function () {
 });
 
 Router.route('/fullscreen');
+
+Router.route('/contributing');
