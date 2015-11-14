@@ -41,13 +41,13 @@
           </div>
         </form>  -->
       {{#autoForm collection="People" id="insertPersonForm" type="insert"}}
-    <fieldset>
+    <div role="form">
       <legend>Add Yourself</legend>
-      {{> afQuickField name='name'}}
-      {{> afQuickField name='email'}}
-      {{> afQuickField name='learning'}}
-      {{> afQuickField name='teaching'}}
-    </fieldset>
+      <legend>Name: </legend> {{> afQuickField name='name'}}
+      <legend>Email: </legend> {{> afQuickField name='email'}}
+      <legend>Learning: </legend> {{> afQuickField name='learning'}}
+      <legend>Teaching: </legend> {{> afQuickField name='teaching'}}
+    </div>
     <div class="modal-footer">
     <button class="btn btn-primary">Add</button>
     </div>
