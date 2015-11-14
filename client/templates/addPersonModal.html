@@ -1,8 +1,8 @@
 <template name="addPersonModal">
-  <div class="modal fade" id="addPersonModal" tabindex="-1" role="dialog" aria-labelledby="addPersonModalLabel" aria-hidden="true">
+   <div class="modal fade" id="addPersonModal" tabindex="-1" role="dialog" aria-labelledby="addPersonModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form class="form-horizontal new-person">
+        <!-- <form class="form-horizontal new-person">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <div class="modal-title" id="addPersonModalLabel">Add person</div>
@@ -39,7 +39,19 @@
           <div class="modal-footer">
             <button class="btn btn-default">Add</button>
           </div>
-        </form>
+        </form>  -->
+      {{#autoForm collection="People" id="insertPersonForm" type="insert"}}
+    <fieldset>
+      <legend>Add Yourself</legend>
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='email'}}
+      {{> afQuickField name='learning'}}
+      {{> afQuickField name='teaching'}}
+    </fieldset>
+    <div class="modal-footer">
+    <button class="btn btn-primary">Add</button>
+    </div>
+  {{/autoForm}}
       </div>
     </div>
   </div>
