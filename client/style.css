@@ -33,3 +33,7 @@ h2 > .badge {
 .col-md-4:nth-child(3n+1) {
   clear: left;
 }
+
+.modal-header{
+  margin: 0 0 20px 0;
+}
