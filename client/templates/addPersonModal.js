@@ -1,5 +1,5 @@
 Template.addPersonModal.events({
-  "submit .new-person": function (event) {
+  "submit #insertPersonForm": function (event) {
     var commaSeparator = /\s*,\s*/;
 
     var name = event.target.name.value;
