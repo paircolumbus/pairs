@@ -16,3 +16,4 @@ Router.map(function () {
 Router.route('/fullscreen');
 Router.route('/faq');
 Router.route('/contributing');
+Router.route('/about');
