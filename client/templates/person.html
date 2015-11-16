@@ -3,6 +3,16 @@
     <div class="panel-heading">
       <img class="img-rounded" src="{{avatarFor email}}">
       <b>{{name}}</b>
+
+      <div>
+        <br>
+        <p id="gender"><b>Gender:&nbsp;&nbsp;</b><b>{{gender}}</b></p>
+      </div>
+
+      <div>
+        <p id="nickname"><b>Nickname:&nbsp;&nbsp;</b><b>{{nickname}}</b></p>
+      </div>
+      
       <form class="form-inline pull-right">
         {{#if isPairsPage}}
           {{#if currentUser}}
