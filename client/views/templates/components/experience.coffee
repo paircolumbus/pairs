@@ -13,11 +13,7 @@ Template.experience.events
   'change select': (event, v) ->
     experience = $(event.target).val()
     Meteor.call('updatePerson', this._id, {experience: experience})
-    window.thth = $(event.target)
     $(event.target).parent().toggle()
   'click .experience': (event, v) ->
-    console.log this
-    console.log 'clicked'
-    window.thth = $(event.target)
     $(event.target).parent().parent().find('.edit-experience').toggle();
     

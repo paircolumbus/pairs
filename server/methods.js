@@ -60,6 +60,9 @@ Meteor.methods({
   },
   updatePerson: function (id, doc) {
     People.update(id, {$set: doc});
+
+    // remove from a pair when updated
+    Meteor.call('unpair', {id: id});
   },
   searchPerson: function (doc) {
     console.log(doc);
