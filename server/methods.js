@@ -40,21 +40,16 @@ Meteor.methods({
       id1 = pairings.first_half[i]._id;
       id2 = pairings.second_half[i]._id;
 
-      Meteor.call('insertPair', {
-        pair: [ id1, id2 ]
-      });
+      Meteor.call('insertPair', id1, id2);
     });
   },
-  insertPair: function (doc) {
-    id1 = doc.pair[0];
-    id2 = doc.pair[1];
+  insertPair: function (id1, id2) {
+    pair_id = Pairs.insert({pair: [id1, id2]});
 
-    pair_id = Pairs.insert(doc);
+    People.update(id1, {$set: {pairee: pair_id}});
+    People.update(id2, {$set: {pairee: pair_id}});
 
-    People.update({_id: id1}, {$set: {pairee: pair_id}});
-    People.update({_id: id2}, {$set: {pairee: pair_id}});
-
-    Pairs.update({_id: pair_id}, {$set: {pair: People.find({_id: id1}).fetch().concat(People.find({_id: id2}).fetch())}});
+    //Pairs.update({_id: pair_id}, {$set: {pair: People.find({_id: id1}).fetch().concat(People.find({_id: id2}).fetch())}});
     Meteor.call('pairedBefore', id1, id2);
   },
   insertPerson: function (doc) {
@@ -62,6 +57,12 @@ Meteor.methods({
 
     // added people should always start out unpaired and assumed present
     People.update({_id: person}, {$set: {pairee: null, joined: true}});
+  },
+  updatePerson: function (id, doc) {
+    People.update(id, {$set: doc});
+
+    // remove from a pair when updated
+    Meteor.call('unpair', {id: id});
   },
   searchPerson: function (doc) {
     console.log(doc);
@@ -89,7 +90,7 @@ Meteor.methods({
     }
 
     // create the pair
-    Meteor.call('insertPair', {pair: [id1, id2]});
+    Meteor.call('insertPair', id1, id2);
   },
   isPaired: function(id){
     return People.findOne(id).pairee;

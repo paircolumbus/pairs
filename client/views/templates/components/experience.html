@@ -1,3 +1,20 @@
 <template name="experience">
-  <p>{{experienceToText}}</p>
+  {{#if isPeoplePage}}
+    <div class="row">
+      <button class="experience">{{experienceToText}}</button>
+    </div>
+    {{>editExperience}}
+  {{else}}
+    {{experienceToText}}
+  {{/if}}
 </template>
+
+<template name="editExperience">
+  <div class="edit-experience">
+    <select class="" name="experience">
+      <option value=0 selected disabled>Experience?</option>
+      {{>experienceForm}}
+    </select>
+  </div>
+</template>
+    
