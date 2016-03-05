@@ -2,15 +2,15 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <img class="img-rounded" src="{{avatarFor email}}">
-      <b>{{name}}</b>
+      <b>{{profile.name}}</b>
       <form class="form-inline pull-right">
         {{#if isPairsPage}}
-          {{#if currentUser}}
+          {{#if isInRole 'admin'}}
             <select class="form-control">
               <option value="new pair">new pair</option>
               {{#each unpaired}}
                 {{#if notequals this._id ../_id}}
-                  <option value={{this._id}}>{{this.name}}</option>
+                  <option value={{this._id}}>{{this.profile.name}}</option>
                 {{/if}}
               {{/each}}
             </select>

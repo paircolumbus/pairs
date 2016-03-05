@@ -60,12 +60,6 @@ Meteor.methods({
     // remove from a pair when updated
     Meteor.call('unpair', {id: id});
   },
-  searchPerson: function (doc) {
-    console.log(doc);
-    person = People.find(doc).fetch();
-    console.log(person);
-    return person;
-  },
   generatePerson: function () {
     People.insert({
       name: faker.name.findName(),
@@ -165,5 +159,10 @@ Meteor.methods({
     } else {
       // do nothing
     }
+  },
+  allUsers: function(){
+    console.log("in allUsers");
+    console.log(Meteor.users.find().fetch());
+    return Meteor.users.find().fetch();
   }
 });

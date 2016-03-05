@@ -23,7 +23,9 @@ Template.registerHelper("isFullscreenPage", function () {
 });
 
 Template.registerHelper('unpaired', function () {
-  return People.find({'pairee': null, joined: true });
+  console.log("in unpaired:");
+  //return People.find({'pairee': null, joined: true });
+  return Meteor.call('allUsers');
 });
 
 Template.registerHelper('avatarFor', function (email) {
@@ -31,6 +33,7 @@ Template.registerHelper('avatarFor', function (email) {
 });
 
 Template.registerHelper( 'pairs', function () {
+  console.log("pairs helper called");
   return Pairs.find({});
 });
 
@@ -41,4 +44,7 @@ Template.registerHelper( 'toggleSkills', function () {
 Template.registerHelper( 'showSkills', function () {
   return Session.get('showSkills');
 });
-
+ 
+Template.registerHelper.usersOnline = function() {
+    return Meteor.users.find({ "status.online": true  })
+};

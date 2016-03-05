@@ -3,21 +3,40 @@
     Pairs
     <span class="badge">{{numberOfPairs}}</span>
   </h2>
+  {{#each usersOnline}}
+    USER 
+  {{/each}}
+  {{> atForm}}
   {{#if currentUser}}
+    <button class="btn btn-xs logout" >Log Out</button>
+    {{username}}
+
+    {{#if isInRole 'admin'}}
+      IS ADMIN
+    {{else}}
+      IS NOT ADMIN
+    {{/if}}
+
+    {{#with currentUser}}
+      {{> person}}
+    {{/with}}
+  {{/if}}
+
+  {{#if isInRole 'admin'}}
     <div class="btn-group btn-group-justified" role="group">
       {{>randomPairsButton}}
       {{>savePairsButton}}
       {{>clearPairsButton}}
     </div>
   {{/if}}
+
   <div class="btn-group btn-group-justified" role="group">
-    {{#if currentUser}}
+    {{#if isInRole 'admin'}}
       {{>viewPeopleButton}}
       {{>toggleSkillsButton}}
       {{>fullscreenButton}}
     {{else}}
       {{>addYourselfButton}}
-      {{>searchYourselfButton}}
       {{>fullscreenButton}}
     {{/if}}
   </div>
