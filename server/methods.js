@@ -1,7 +1,3 @@
-Accounts.config({
-  forbidClientAccountCreation: true
-});
-
 function generateSkills() {
   var skills = [];
   _.times(_.random(1, 5), function () {
