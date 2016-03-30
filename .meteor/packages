@@ -16,5 +16,5 @@ u2622:persistent-session
 accounts-password
 ian:accounts-ui-bootstrap-3
 twbs:bootstrap
-mike:mocha
+practicalmeteor:mocha
 anti:i18n
