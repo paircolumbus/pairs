@@ -25,9 +25,16 @@ h2 > .badge {
   background-color: white;
 }
 
+.navbar .navbar-nav > li > a {
+  padding: 1px 4px 1px 5px;
+}
+
 .navbar-right {
   font-size: 24px;
-  padding-top: 7px;
+  padding-top: 1px;
+}
+.btn.btn-xs {
+  padding: 1px 4px 1px 5px;
 }
 
 .col-md-4:nth-child(3n+1) {
