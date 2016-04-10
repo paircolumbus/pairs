@@ -15,7 +15,7 @@ u2622:persistent-session
 accounts-password
 ian:accounts-ui-bootstrap-3
 twbs:bootstrap
-practicalmeteor:mocha
+practicalmeteor:mocha@2.1.1-rc.1
 anti:i18n
 standard-minifiers
 meteor-base
