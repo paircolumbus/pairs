@@ -10,7 +10,8 @@ Template.registerHelper("notequals", function (a, b) {
 });
 
 Template.registerHelper("isPairsPage", function () {
-  return Router.current().route.getName() === undefined;
+  routeName = Router.current().route.getName();
+  return (routeName === undefined || routeName === 'pairs');
 });
 
 Template.registerHelper("isPeoplePage", function () {
