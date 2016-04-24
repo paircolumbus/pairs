@@ -36,3 +36,5 @@ check
 standard-minifier-css
 standard-minifier-js
 mizzao:user-status
+reactive-var
+raix:handlebar-helpers

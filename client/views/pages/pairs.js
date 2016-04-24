@@ -5,9 +5,6 @@ Template.pairs.helpers({
   numberOfPairs: function () {
     return Pairs.find({}).count();
   },
-  numberOfUnpaired: function () {
-    return People.find({ pairee: null, joined: true }).count();
-  },
   usersOnline: function() {
     return Meteor.users.find({ "status.online": true  }).fetch();
   }

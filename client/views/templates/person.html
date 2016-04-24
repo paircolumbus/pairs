@@ -6,6 +6,8 @@
       <form class="form-inline pull-right">
         {{#if isPairsPage}}
           {{#if isInRole 'admin'}}
+
+
             <select class="form-control">
               <option value="new pair">new pair</option>
               {{#each unpaired}}
@@ -14,6 +16,8 @@
                 {{/if}}
               {{/each}}
             </select>
+
+
           {{else}}
           {{/if}}
         {{/if}}
@@ -35,4 +39,8 @@
 
 
   </div>
+</template>
+
+
+<template name="personComment">
 </template>
