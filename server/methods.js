@@ -147,11 +147,11 @@ Meteor.methods({
     People.update({pairee: null}, {$set: {paired: null}}, {multi: true});
 
     Pairs.find({}).forEach(function(pair,i){
-      var allThePeople = People.find({pairee: pair._id}).fetch().map(function(d,i){
+      var allThePeopleThatPairedWithThePerson = People.find({pairee: pair._id}).fetch().map(function(d,i){
         return d._id;
       });
       People.find({pairee: pair._id}).forEach(function(person,i){
-        allThePeopleMinusTheOnePerson = allThePeople.filter(function(d){
+        allThePeopleMinusTheOnePerson = allThePeopleThatPairedWithThePerson.filter(function(d){
           return d != person._id;
         });
         People.update({_id: person._id}, {$set: {paired: allThePeopleMinusTheOnePerson}});
