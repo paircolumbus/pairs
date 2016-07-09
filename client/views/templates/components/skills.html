@@ -2,18 +2,18 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-	<th>Learning</th>
-	<th>Teaching</th>
+        <th>Learning</th>
+        <th>Teaching</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-	<td>{{#each learning}}
-	  <span class="label label-default">{{this}}</span>
-	{{/each}}</td>
-	<td>{{#each teaching}}
-	  <span class="label label-default">{{this}}</span>
-	{{/each}}</td>
+        <td>{{#each profile.learning}}
+          <span class="label label-default">{{this}}</span>
+        {{/each}}</td>
+        <td>{{#each profile.teaching}}
+          <span class="label label-default">{{this}}</span>
+        {{/each}}</td>
       </tr>
     </tbody>
   </table>

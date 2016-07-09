@@ -48,23 +48,11 @@ Meteor.methods({
     //Pairs.update({_id: pair_id}, {$set: {pair: People.find({_id: id1}).fetch().concat(People.find({_id: id2}).fetch())}});
     Meteor.call('pairedBefore', id1, id2);
   },
-  insertPerson: function (doc) {
-    person = People.insert(doc);
-
-    // added people should always start out unpaired and assumed present
-    People.update({_id: person}, {$set: {pairee: null, joined: true}});
-  },
   updatePerson: function (id, doc) {
     People.update(id, {$set: doc});
 
     // remove from a pair when updated
     Meteor.call('unpair', {id: id});
-  },
-  searchPerson: function (doc) {
-    console.log(doc);
-    person = People.find(doc).fetch();
-    console.log(person);
-    return person;
   },
   generatePerson: function () {
     People.insert({

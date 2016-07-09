@@ -12,8 +12,10 @@ digilord:faker
 underscore
 coffeescript
 u2622:persistent-session
+useraccounts:materialize
 accounts-password
-ian:accounts-ui-bootstrap-3
+alanning:roles
+aldeed:template-extension
 twbs:bootstrap
 practicalmeteor:mocha@2.1.1-rc.1
 anti:i18n
@@ -33,3 +35,6 @@ spacebars
 check
 standard-minifier-css
 standard-minifier-js
+mizzao:user-status
+reactive-var
+raix:handlebar-helpers

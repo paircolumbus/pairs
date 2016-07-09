@@ -1,26 +1,41 @@
 <template name="pairs">
-  <h2>
-    Pairs
-    <span class="badge">{{numberOfPairs}}</span>
-  </h2>
+  {{> atForm}}
+
   {{#if currentUser}}
+    <button class="btn btn-xs logout" >Log Out</button>
+    {{username}}
+
+    {{#if isInRole 'admin'}}
+      IS ADMIN
+    {{else}}
+      IS NOT ADMIN
+    {{/if}}
+
+  {{/if}}
+
+
+  {{#if isInRole 'admin'}}
     <div class="btn-group btn-group-justified" role="group">
       {{>randomPairsButton}}
       {{>savePairsButton}}
       {{>clearPairsButton}}
     </div>
   {{/if}}
+
   <div class="btn-group btn-group-justified" role="group">
-    {{#if currentUser}}
+    {{#if isInRole 'admin'}}
       {{>viewPeopleButton}}
       {{>toggleSkillsButton}}
       {{>fullscreenButton}}
     {{else}}
-      {{>addYourselfButton}}
-      {{>searchYourselfButton}}
       {{>fullscreenButton}}
     {{/if}}
   </div>
+
+  <h2>
+    Pairs
+    <span class="badge">{{numberOfPairs}}</span>
+  </h2>
 
   {{#each pairs}}
     {{>pairCard}}
@@ -31,11 +46,28 @@
     <span class="badge">{{numberOfUnpaired}}</span>
   </h2>
 
-  <div class="row">
-    {{#each unpaired}}
-      <div class="col-md-4">
-        {{>person}}
-      </div>
-    {{/each}}
-  </div>
+  {{#if Template.subscriptionsReady}}
+    <div class="row">
+      {{#each unpaired}}
+      UNPAIRED
+      {{/each}}
+    </div>
+
+
+  {{else}}
+    Loading...
+  {{/if}}
+</template>
+
+
+<template name="commented">
+    <div class="row">
+      {{#each users}}
+        USER
+        <div class="col-md-4">
+          {{>person}}
+        </div>
+      {{/each}}
+    </div>
+
 </template>
